@@ -1,10 +1,9 @@
 #include "Registrador.hpp"
-
-Registrador::Registrador(int nome){
+Registrador::Registrador(string nome){
     this->nome = nome;
 }
 
-int Registrador::get_nome(){
+string Registrador::get_nome(){
     return this->nome;
 }
 int Registrador::get_valor(){

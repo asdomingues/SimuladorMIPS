@@ -1,5 +1,9 @@
 #include "BancoDeRegistradores.hpp"
+#include <cstdlib>
+#include <sstream>
 #include <iostream>
+
+using namespace std;
 
 int BancoDeRegistradores::read_reg1(int reg){
 	this->banco[reg].get_valor();
@@ -17,12 +21,16 @@ void BancoDeRegistradores::reg_write(){
 	this->banco[this->write_register].set_valor(this->write_data);
 }
 BancoDeRegistradores::BancoDeRegistradores(int size){
+	char buffer[3];
 	this->banco = (Registrador*) malloc(sizeof(Registrador) * size);
 	for(int i = 0; i < size; i++){
-		this->banco[i] = Registrador(i);
+		stringstream ss;
+		ss << i;		
+		string s = "R" + ss.str();
+		this->banco[i] = Registrador(s);
 	}
 }
-/*
+
 int main (){
 	BancoDeRegistradores b(NREGISTRADORES);
 	b.set_wreg(3);
@@ -30,4 +38,4 @@ int main (){
 	b.reg_write();
 	b.read_reg1(3);
 	std::cout << b.read_reg1(3); 
-	}*/
+	}
