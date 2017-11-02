@@ -10,5 +10,5 @@ int Registrador::get_valor(){
     return this->valor;
 }
 void Registrador::set_valor(int valor){
-    this->valor = valor % valor_max;
+    this->valor = valor % VALOR_MAX;
 }

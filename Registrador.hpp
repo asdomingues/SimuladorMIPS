@@ -1,7 +1,7 @@
 #ifndef REGISTRADOR_HPP
 #define REGISTRADOR_HPP
 #include <string>
-#define valor_max 256 //2^8
+#define VALOR_MAX 256 //2^8
 
 using namespace std;
 
