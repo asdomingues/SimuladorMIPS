@@ -31,7 +31,7 @@ BancoDeRegistradores::BancoDeRegistradores(int size){
 	}
 }
 
-int main (){
+/*int main (){
 	BancoDeRegistradores b(NREGISTRADORES);
 	b.set_wreg(3);
 	b.set_wdata(55);
@@ -39,3 +39,4 @@ int main (){
 	b.read_reg1(3);
 	std::cout << b.read_reg1(3); 
 	}
+*/
