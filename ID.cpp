@@ -40,10 +40,23 @@ ID::ID(BancoDeRegistradores *banco, IFID *ifid, IDEXE *idexe){
 
 void ID::controlSignals(){
 	//separate string into parts
-	vector<string> results = split(ir,' ');
+	vector<string> results;
+
+	if(ir!="")
+		results=split(ir,' ');
+	else{
+		results.resize(1);
+		results.at(0)=="nop";
+	}
+	
+
+	//find what type of instruction it is
+	//according to type
+	//generate signals
+
 
 	if(results.at(0)=="add" || results.at(0)=="sub" || results.at(0)=="or" || results.at(0)=="and"){
-		cout << "encontrei tipo r\n";
+		//cout << "encontrei tipo r\n";
 
 		//gerar sinais
 		aluOP = results.at(0);
@@ -54,6 +67,7 @@ void ID::controlSignals(){
 		memWrite=false;
 		memToReg=false;
 		regWrite=true;
+		imm=0;
 
 		std::string output;
 		for(size_t i = 0; i < results.at(1).size(); ++i)
@@ -61,31 +75,27 @@ void ID::controlSignals(){
 
 		//pegar rs, rt, rd
 		rd = atoi(output.c_str());
-		cout << rd;
-		cout << "\n";
+	
 
 		output="";
 		for(size_t i = 0; i < results.at(2).size(); ++i)
 		  if(results.at(2)[i]>='0' && results.at(2)[i]<='9') output += results.at(2)[i];
 
 		rs = atoi(output.c_str());
-		cout << rs;
-		cout << "\n";
+
 
 		output="";
 		for(size_t i = 0; i < results.at(3).size(); ++i)
 		  if(results.at(3)[i]>='0' && results.at(3)[i]<='9') output += results.at(3)[i];
 
 		rt = atoi(output.c_str());
-		cout << rt;
-		cout << "\n";
 				
 	}else{
 		if(results.at(0)=="beq"){
-			cout << "encontrei beq\n";
+			//cout << "encontrei beq\n";
 
 			//gerar sinais
-			aluOP = "";
+			aluOP = "sub";
 			regDest=false;
 			aluSrc=false;
 			branch=true;
@@ -93,44 +103,79 @@ void ID::controlSignals(){
 			memWrite=false;
 			memToReg=false;
 			regWrite=false;
+			rd=0;
 
 			std::string output;
 			for(size_t i = 0; i < results.at(1).size(); ++i)
 			  if(results.at(1)[i]>='0' && results.at(1)[i]<='9') output += results.at(1)[i];
 
 			rs = atoi(output.c_str());
-			cout << rs;
-			cout << "\n";
+			
 
 			output="";
 			for(size_t i = 0; i < results.at(2).size(); ++i)
 			  if(results.at(2)[i]>='0' && results.at(2)[i]<='9') output += results.at(2)[i];
 
 			rt = atoi(output.c_str());
-			cout << rt;
-			cout << "\n";
-
+		
 			imm = atoi(results.at(3).c_str());
-			cout << imm;
-			cout << "\n";
 
 		}else{
 			if(results.at(0)=="lw" || results.at(0)=="sw"){
+				//cout<<"lw ou sw\n";
 
+				rd=0;
+
+				std::string output;
+				for(size_t i = 0; i < results.at(1).size(); ++i)
+				  if(results.at(1)[i]>='0' && results.at(1)[i]<='9') output += results.at(1)[i];
+
+				rt = atoi(output.c_str());
+		
+				vector<string> aux = split(results.at(2),'(');
+				imm = atoi(aux.at(0).c_str());
+
+				output="";
+				for(size_t i = 0; i < aux.at(1).size(); ++i)
+				  if(aux.at(1)[i]>='0' && aux.at(1)[i]<='9') output += aux.at(1)[i];
+
+				rs = atoi(output.c_str());
+
+				aluOP = "add";
+				if(results.at(0)=="lw"){
+					regDest=false;
+					aluSrc=true;
+					branch=false;
+					memRead=true;
+					memWrite=false;
+					memToReg=true;
+					regWrite=true;
+				}else{
+					regDest=false;
+					aluSrc=true;
+					branch=false;
+					memRead=false;
+					memWrite=true;
+					memToReg=false;
+					regWrite=false;
+				}
 			}else{
 				//NOP
+				//cout << "NOP\n";
+				//gerar sinais
+				aluOP = "";
+				regDest=true;
+				aluSrc=false;
+				branch=false;
+				memRead=false;
+				memWrite=false;
+				memToReg=false;
+				regWrite=true;
+				rt=rd=rs=imm=0;
 			}
 		}
 	}
-	//find what type of instruction it is
-		//according to type
-		//generate signals
-	//r type
-	//add, sub, and, or
 
-	//lw, sw
-
-	//beq
 	
 }
 
@@ -153,23 +198,24 @@ void ID::readIFID(){
 void ID::tick(){
 
 	//executar
-		//get ir and npc from id/exe
 		//generate new signals
 		//read registers
 	//escrever id/exe
 	//ler if/id
 	
-	/*controlSignals();
-	//read registers
+	controlSignals();
+	//read registers and save to id/exe
+
 	idexe->setA(banco->read_reg1(rs));
 	idexe->setB(banco->read_reg1(rt));
-	ideexe->setImm(imm);
+	idexe->setImm(imm);
+	idexe->setRD(rd);
+	idexe->setRT(rt);
+	idexe->setIR(ir);
+	idexe->setNPC(npc);
 
 	writeSignals();
 	readIFID();	
-*/
-	readIFID();
-	controlSignals();
 }
 
 void ID::setIFID(IFID *ifid){
@@ -182,26 +228,35 @@ void ID::setIDEXE(IDEXE *idexe){
 
 
 int main(){
-	string test = "beq $r1, $r2, 100";
+	string test = "lw $r1, 100($r2)";
+	string test2 ="add $r3, $r2, $r1";
 
 	IFID ifid;
 	IDEXE idexe;
-	ID id(NULL, &ifid, &idexe);
-
-	//id.setIDEXE(&idexe);
-	//id.setIFID(&ifid);
+	BancoDeRegistradores banco(32);
+	ID id(&banco, &ifid, &idexe);
 
 	ifid.setIR(test);
 
-	//id.readIFID();
-	//id.controlSignals();
-	id.tick();
-//	id.tick();
-	/*vector<string> results = split(test,' ');
+	banco.set_wreg(2);
+	banco.set_wdata(2);
+	banco.reg_write();
 
-	for(int i=0; i<results.size(); i++){
-		cout << results.at(i);
-		cout << "    ";
-	}*/
+	id.tick();
+	cout << idexe.getA();
+	cout << "\n";
+	cout << idexe.getB();
+	cout << "\n";
+	cout << idexe.getImm();
+	cout << "\n";
+	id.tick();
+	cout << idexe.getA();
+	cout << "\n";
+	cout << idexe.getB();
+	cout << "\n";
+	cout << idexe.getImm();
+	cout << "\n";
+
+
 	return 0;
 }
