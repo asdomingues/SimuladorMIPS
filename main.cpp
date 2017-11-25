@@ -2,7 +2,7 @@
 #include <string>
 #include <iostream>
 #include <fstream>
-#include "memoriainstrucao.hpp"
+#include "MemoriaInstrucao.hpp"
 
 using namespace std;
 
