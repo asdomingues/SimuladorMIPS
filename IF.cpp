@@ -25,7 +25,7 @@
 			//npc
 		
 		mux.set_entrada(0, pc);
-		mux.set_entrada(1, int valor);
+		mux.set_entrada(1, VALOR);
 		pc.set_valor(mux.get_saida(pcSrc));
 	
 		//escreve no ifid

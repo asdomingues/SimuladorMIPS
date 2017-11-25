@@ -6,7 +6,6 @@
 class BancoDeRegistradores{
 	public:
 		int read_reg1(int reg);
-		int read_reg2(int reg);
 		void set_wreg(int reg);
 		void set_wdata(int data);
 		void reg_write();
