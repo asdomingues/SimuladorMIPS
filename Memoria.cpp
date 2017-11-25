@@ -3,45 +3,28 @@
 #include <iostream>
 
 using namespace std;
-Memoria::Memoria(int size){
-	this->dados = (int*) malloc(sizeof(int) * size);	
-	this->size = size;
+Memoria::Memoria(){
+	adress = 0;
+	w_data = 0;
+	for(int i = 0; i < TAM; i++)
+		dados[i] = 0;
 }
 
 // TODO tratar end > size
-void Memoria::set_endereco(int end){
-	if(end > this->size){
-
-	}
-	this->end = end;
+void Memoria::set_endereco(int val){
+	val /= 4;
+	addres = val % TAM;
 }
 
 int Memoria::read(){
-	return this->dados[this->end];
+	return dados[addres];
 }
 
-void Memoria::set_wdata(int dado){
-	this->w_data = dado;
+void Memoria::set_wdata(int val){
+	w_data = val;
 }
 
 void Memoria::write(){
-	this->dados[this->end] = this->w_data % VALOR_MAX;
+	dados[adress] = w_data % TAM;
 }
 
-
-int main(){
-	Memoria m = Memoria(10);
-	m.set_endereco(0);
-	m.set_wdata(35);
-	m.write();
-	m.set_endereco(3);
-	m.set_wdata(21);
-	m.write();
-	m.set_endereco(0);
-	cout << m.read() << endl;
-	m.set_endereco(3);
-	cout << m.read() << endl;
-
-
-
-}
