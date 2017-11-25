@@ -15,7 +15,7 @@ int MEMWB::getALUOut(){
 }
 
 void MEMWB::setALUOut(int val){
-    val = ALUOut;
+    ALUOut = val;
 }
 
 int MEMWB::getLMemoryData(){

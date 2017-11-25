@@ -5,14 +5,13 @@
 #include "Mux.hpp"
 #include "MEMWB.hpp"
 
-
+using namespace std;
 class WB{
 	private:
 		BancoDeRegistradores *banco;
 		MEMWB *memwb;
 		Mux mux;
 	
-		
 		//numero do registrador de destino
 	public:
 		void tick();
