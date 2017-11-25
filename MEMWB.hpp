@@ -1,6 +1,9 @@
 #ifndef MEMWB_H
 #define MEMWB_H
 
+#include <string>
+
+using namespace std;
 
 class MEMWB{
     public:
@@ -20,6 +23,9 @@ class MEMWB{
         int getMemtoReg();
         void setMemtoReg(int val);
 
+        int get_reg_address();
+        void set_reg_address(int val);
+
 
 
     private:
@@ -28,6 +34,7 @@ class MEMWB{
         int LMemoryData;
         int RegWrite;
         int MemtoReg;
+        int wr_address;
 };
 
 #endif // MEMWB_H

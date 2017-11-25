@@ -1,5 +1,6 @@
 #ifndef MUX_HPP
 #define MUX_HPP
+
 class Mux{
 	public:
 		Mux(int size);

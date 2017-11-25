@@ -2,6 +2,8 @@
 #define _WB_H_
 
 #include "BancoDeRegistradores.hpp"
+#include "Mux.hpp"
+#include "MEMWB.hpp"
 
 
 class WB{
@@ -15,7 +17,7 @@ class WB{
 	public:
 		void tick();
 		WB(BancoDeRegistradores *banco, MEMWB *memwb);
-		
+
 };
 
 #endif

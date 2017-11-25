@@ -5,7 +5,7 @@
 	WB::WB(BancoDeRegistradores *banco, MEMWB *memwb){
 		this->banco=banco;
 		this->memwb=memwb;
-		mux = Mux(2);
+		this->mux(2);
 	}
 
 	void WB::tick(){
@@ -26,7 +26,7 @@
 			mux.set_entrada(1, memwb->getLMemoryData());
 			data = mux.get_saida(memwb->getRegWrite());
 
-			banco->set_wreg(num);	
+			banco->set_wreg(memwb->get_reg_address());	
 			banco->set_wdata(data);
 			banco->reg_write();
 		}
@@ -50,10 +50,11 @@
         memwb->setRegWrite(true);
 
         memwb->setMemtoReg(true);
+        memwb->setWr_address(0)
 
         wb.tick();
 
-        cout << banco->read_reg1();
+        cout << banco->read_reg1(0);
 
 
 
