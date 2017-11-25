@@ -2,8 +2,7 @@
 #define _IF_H_
 
 #include "BancoDeRegistradores.hpp"
-#include "IFIF.hpp"
-#include "IFEXE.hpp"
+#include "IFID.hpp"
 
 class IF{
 	private:
@@ -12,7 +11,7 @@ class IF{
 		Registrador pc;
 		string ir;
 		Mux mux;
-		
+
 		//numero do registrador de destino
 	public:
 		void tick();

@@ -12,16 +12,18 @@
 
 	void tick(){
 		//le memoria
-		memoria.set_endereco();
+		memoria.set_endereco(pc.get_valor());
 		ir = memoria.read();
 		
 		//incrementa PC
-		pc.set_valor(pc.get_valor+4);
+		pc.set_valor(pc.get_valor()+4);
 
 		bool pcSrc;
+
 		//pegue do exmem
 			//and branch e o zero
 			//npc
+		
 		mux.set_entrada(0, pc);
 		mux.set_entrada(1, int valor);
 		pc.set_valor(mux.get_saida(pcSrc));
