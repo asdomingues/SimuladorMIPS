@@ -11,7 +11,7 @@ Memoria::Memoria(){
 // TODO tratar end > size
 void Memoria::set_address(int val){
 	val /= 4;
-	addres = val % TAM;
+	address = val % TAM;
 }
 
 int Memoria::read(){
