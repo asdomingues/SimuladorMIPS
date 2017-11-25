@@ -15,4 +15,5 @@ void Mem::tick(){
 
 	m->set_address(exmem->get_alu_out());
 	m->set_wdata(exmem->alu_in2);
+	if(exmem->get_mem_write() == true) m->write;
 }
