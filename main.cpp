@@ -6,7 +6,7 @@
 
 using namespace std;
 
-int main(int argc, char *argv[]){
+int main(){
     ifstream entrada;
     entrada.open("entrada.txt", ios_base::in);
     string linha;
