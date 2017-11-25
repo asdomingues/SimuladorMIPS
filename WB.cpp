@@ -43,7 +43,7 @@ using namespace std;
 
         memwb.setRegWrite(true);
 
-        memwb.setMemtoReg(true);
+        memwb.setMemtoReg(false);
         memwb.set_reg_address(0);
 
         wb.tick();

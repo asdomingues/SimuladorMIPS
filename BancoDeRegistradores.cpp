@@ -6,7 +6,7 @@
 using namespace std;
 
 int BancoDeRegistradores::read_reg1(int reg){
-	this->banco[reg].get_valor();
+	return this->banco[reg].get_valor();
 }
 
 
