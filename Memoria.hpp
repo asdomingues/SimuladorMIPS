@@ -10,7 +10,7 @@ class Memoria{
 		void set_wdata(int val);
 		int read();
 		void write();
-
+		int load_memory(char*); 
 	private:
 		int address, w_data;
 		int dados[TAM];
