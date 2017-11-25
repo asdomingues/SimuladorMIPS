@@ -21,7 +21,7 @@ int Mux::get_saida(int entrada){
 	}
 	return this->entradas[entrada];
 }
-
+/*
 int main (){
 	Mux m = Mux(3);
 	m.set_entrada(0, 0);
@@ -30,4 +30,4 @@ int main (){
 	cout << m.get_saida(0) << endl;
 	cout << m.get_saida(1) << endl;
 	cout << m.get_saida(2) << endl;
-}
+}*/
