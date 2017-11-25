@@ -1,14 +1,14 @@
 //Obs: Achei que ficaria mais fiel a arquitetura esse formato de ULA mas se quiserem mudar so alterar as funcoes
 #ifndef ULA_H
 #define ULA_H
-#include <math.h>
+#include <string>
 
 #define NBITS 8
 
 class Ula
 {
     public:
-        int aluOP;
+        string aluOP;
         Ula();
         int operation();
         void set_aluIN1(int valor);
