@@ -29,5 +29,8 @@ void Ula::set_aluOP(int valor){
 	aluOP = valor;
 }
 
+int Ula::get_aluOUT(){
+	return aluOUT;
+}
 
 
