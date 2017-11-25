@@ -10,6 +10,10 @@ string MEMWB::getir(){
     return ir;
 }
 
+void MEMWB::setir(string ir){
+    this->ir=ir;
+}
+
 int MEMWB::getALUOut(){
     return ALUOut;
 }

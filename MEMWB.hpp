@@ -9,8 +9,8 @@ class MEMWB{
     public:
         MEMWB();
 
-        string getIr();
-        string setIr();
+        string getir();
+        void setir(string ir);
         int getALUOut();
         void setALUOut(int val);
 
