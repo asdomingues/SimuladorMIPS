@@ -6,23 +6,23 @@ MEMWB::MEMWB(){
     MemtoReg = 0;
 }
 
-string getir(){
+string MEMWB::getir(){
     return ir;
 }
 
-int getALUOut(){
+int MEMWB::getALUOut(){
     return ALUOut;
 }
 
-void setALUOut(int val){
-    val = ALUOut;
+void MEMWB::setALUOut(int val){
+    ALUOut = val;
 }
 
-int getLMemoryData(){
+int MEMWB::getLMemoryData(){
     return LMemoryData;
 }
 
-void setLMemoryData(int val){
+void MEMWB::setLMemoryData(int val){
     LMemoryData = val;
 }
 
@@ -40,4 +40,11 @@ int MEMWB::getMemtoReg(){
 
 void MEMWB::setMemtoReg(int val){
     MemtoReg = val;
+}
+
+int MEMWB::get_reg_address(){
+    return wr_address;
+}
+void MEMWB::set_reg_address(int val){
+    wr_address = val;
 }

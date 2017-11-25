@@ -8,6 +8,11 @@ Mux::Mux(int size){
 	this->entradas = (int *) malloc(sizeof(int)*size);
 }
 
+Mux::Mux(){
+	this->tamanho = 2;
+	this->entradas = (int *) malloc(sizeof(int)*2);
+}
+
 void Mux::set_entrada(int entrada, int valor){
 	if(entrada > this->tamanho)
 		return;
