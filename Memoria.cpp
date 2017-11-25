@@ -23,5 +23,5 @@ void Memoria::set_wdata(int val){
 }
 
 void Memoria::write(){
-	dados[address] = w_data % TAM;
+	dados[address] = w_data;
 }
