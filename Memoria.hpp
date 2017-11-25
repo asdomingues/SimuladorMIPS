@@ -1,16 +1,17 @@
 #ifndef MEMORIA_HPP
 #define MEMORIA_HPP
 #include "Registrador.hpp"
+#define TAM 1024
 class Memoria{
 	public:
-		Memoria(int size);
-		void set_endereco(int end);
-		void set_wdata(int dado);
+		Memoria();
+		void set_endereco(int val);
+		void set_wdata(int val);
 		int read();
 		void write();
 	private:
-		int end, w_data, r_data, size;
-		int *dados;
+		int adress, w_data;
+		int dados[TAM];
 };
 
 #endif
