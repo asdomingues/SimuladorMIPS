@@ -104,7 +104,7 @@ bool EXMEM::get_mem_write() {
 bool EXMEM::get_mem_to_reg() {
 	return this->mem_to_reg;
 }
-
+/*
 int main (void) {
 	return 0;
-}
+}*/

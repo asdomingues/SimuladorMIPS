@@ -4,10 +4,13 @@
 #include "BancoDeRegistradores.hpp"
 #include "IFID.hpp"
 #include "EXMEM.hpp"
+#include "MemoriaInstrucao.hpp"
+#include "Mux.hpp"
+#include <iostream>
 
 class IF{
 	private:
-		Memoria *memoria;
+		MemoriaInstrucao *memoria;
 		IFID *ifid;
 		EXMEM *exmem;
 		Registrador pc;
@@ -17,7 +20,7 @@ class IF{
 		//numero do registrador de destino
 	public:
 		void tick();
-		ID(Memoria *memoria, IFID *ifid, EXMEM *exmem);
+		IF(MemoriaInstrucao *memoria, IFID *ifid, EXMEM *exmem);
 		int get_pc();
 };
 
