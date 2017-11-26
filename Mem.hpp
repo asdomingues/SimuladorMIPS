@@ -14,8 +14,13 @@ class Mem{
 		MEMWB memwb;
 		bool mem_write = false;
 		bool mem_read = false;
-
-		
+		bool mem_to_reg = false;
+		bool reg_write = false;
+		int address = 0;
+		int write_data = 0;	
+		int read_data = 0;
+		int write_reg_address = 0;
+		int alu_out = 0;
 
 };
 

@@ -1,6 +1,7 @@
 #include "Registrador.hpp"
 Registrador::Registrador(string nome){
     this->nome = nome;
+    valor = 0;
 }
 
 string Registrador::get_nome(){
