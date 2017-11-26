@@ -17,11 +17,11 @@ class MEMWB{
         int getLMemoryData();
         void setLMemoryData(int val);
 
-        int getRegWrite();
-        void setRegWrite(int val);
+        bool getRegWrite();
+        void setRegWrite(bool val);
 
-        int getMemtoReg();
-        void setMemtoReg(int val);
+        bool getMemtoReg();
+        void setMemtoReg(bool val);
 
         int get_reg_address();
         void set_reg_address(int val);
@@ -32,8 +32,8 @@ class MEMWB{
         string ir;
         int ALUOut;
         int LMemoryData;
-        int RegWrite;
-        int MemtoReg;
+        bool RegWrite;
+        bool MemtoReg;
         int wr_address;
 };
 

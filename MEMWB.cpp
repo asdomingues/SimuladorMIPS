@@ -30,19 +30,19 @@ void MEMWB::setLMemoryData(int val){
     LMemoryData = val;
 }
 
-int MEMWB::getRegWrite(){
+bool MEMWB::getRegWrite(){
     return RegWrite;
 }
 
-void MEMWB::setRegWrite(int val){
+void MEMWB::setRegWrite(bool val){
     RegWrite = val;
 }
 
-int MEMWB::getMemtoReg(){
+bool MEMWB::getMemtoReg(){
     return MemtoReg;
 }
 
-void MEMWB::setMemtoReg(int val){
+void MEMWB::setMemtoReg(bool val){
     MemtoReg = val;
 }
 
