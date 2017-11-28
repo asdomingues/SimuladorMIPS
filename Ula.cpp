@@ -25,7 +25,7 @@ void Ula::set_aluIN2(int valor){
 	aluIN2 = valor;
 }
 
-void Ula::set_aluOP(int valor){
+void Ula::set_aluOP(string valor){
 	aluOP = valor;
 }
 
