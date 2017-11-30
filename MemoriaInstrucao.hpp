@@ -12,6 +12,7 @@ class MemoriaInstrucao{
         void set_wdata(string val);
         string read();
         void write();
+        void load_instructions(string filename);
 
     private:
         int address;

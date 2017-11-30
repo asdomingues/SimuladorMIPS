@@ -10,6 +10,7 @@ using namespace std;
 
 
 int main(){
+<<<<<<< HEAD
     MemoriaInstrucao memoria_instrucao;
     IFID ifid;
     EXMEM exmem;
@@ -22,6 +23,7 @@ int main(){
     IF ifstage(&memoria_instrucao, &ifid, &exmem);
     ID idstage(&banco, &ifid, &idexe);
     EX exstage();
+
 
 
     /*int numero = 0;

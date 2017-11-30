@@ -1,4 +1,5 @@
 #include "MemoriaInstrucao.hpp"
+#include <fstream>
 
 using namespace std;
 MemoriaInstrucao::MemoriaInstrucao(){
@@ -23,4 +24,19 @@ void MemoriaInstrucao::set_wdata(string val){
 
 void MemoriaInstrucao::write(){
     dados[address] = w_data;
+}
+
+void load_instructions(string filename){
+	ifstream entrada;
+	entrada.open("entrada.txt", ios_base::in);
+    string linha;
+    int pc = 0;
+    while(getline(entrada, linha)){
+        if(linha != "sair"){
+            this.set_wdata(linha);
+            this.set_address(pc * 4);
+            this.write();
+        }
+        pc++;
+    }
 }
