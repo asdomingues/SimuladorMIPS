@@ -38,12 +38,13 @@ int main(){
     Mem memstage(&exmem, &memwb, "Memoria does not name a type.txt");
     WB wbstage(&banco, &memwb);
 
-    for(int i=0; i<memoria_instrucao.get_n_instructions(); i++){
+    while(ifstage.get_pc()<memoria_instrucao.get_n_instructions()){
         ifstage.tick();
         idstage.tick();
         exstage.tick();
         memstage.tick();
         wbstage.tick();
+        cout << ifid.getIR() << " " << ifid.getNPC();
     }
 
 
