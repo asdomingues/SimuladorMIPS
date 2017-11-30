@@ -29,6 +29,7 @@ void EX::write_signals() {
 	exmem->set_mem_read(mem_read);
 	exmem->set_mem_write(mem_write);
 	exmem->set_mem_to_reg(mem_to_reg);
+	exmem->set_ir(idex->getIR());
 }
 
 void EX::read_idex() {
