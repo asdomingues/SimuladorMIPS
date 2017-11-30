@@ -38,7 +38,7 @@ int main(){
     Mem memstage(&exmem, &memwb, "registrador.in");
     WB wbstage(&banco, &memwb);
 
-    while(ifstage.get_pc()<memoria_instrucao.get_n_instructions()){
+    while(ifstage.get_pc()<memoria_instrucao.get_n_instructions()*4){
         ifstage.tick();
         idstage.tick();
         exstage.tick();
