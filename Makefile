@@ -3,7 +3,7 @@ INCLUDE=./include/
 BUILD=./build/
 BIN=main
 
-COMPILER=clang
+COMPILER=g++
 CFLAGS=-std=c++11 -g -Wall -Wextra -Wfatal-errors -Wno-parentheses
 BOX=valgrind
 BFLAGS=--leak-check=full --show-leak-kinds=all --track-origins=yes
