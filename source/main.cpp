@@ -45,7 +45,10 @@ int main(){
         ifstage.read_exmem();
         memstage.tick();
         wbstage.tick();
-        cout << ifid.getIR() << " " << ifid.getNPC() << endl;
+        cout << "ifid: " << ifid.getIR() << " " << ifid.getNPC() << endl;
+        cout << "idexe: " << idexe.getIR() << " " << idexe.getNPC() << endl;
+        cout << "exmem: " << exmem.get_ir() << " " << endl;
+        cout << "memwb: " << memwb.getir() << " " << endl;
     }
 
 
