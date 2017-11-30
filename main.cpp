@@ -10,9 +10,10 @@ using namespace std;
 
 
 int main(){
-<<<<<<< HEAD
+
     MemoriaInstrucao memoria_instrucao;
     IFID ifid;
+    ULA alu;
     EXMEM exmem;
     MEMWB memwb;
     IDEXE idexe;
@@ -22,8 +23,8 @@ int main(){
     //criar tudo
     IF ifstage(&memoria_instrucao, &ifid, &exmem);
     ID idstage(&banco, &ifid, &idexe);
-    EX exstage();
-
+    EX exstage(&alu, &idexe, &exmem);
+    WB wbstage(&banco, &memwb);
 
 
     /*int numero = 0;
