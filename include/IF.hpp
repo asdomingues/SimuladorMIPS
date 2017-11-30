@@ -16,12 +16,14 @@ class IF{
 		Registrador pc;
 		string ir;
 		Mux mux;
+		bool pcSrc;
 
 		//numero do registrador de destino
 	public:
 		void tick();
 		IF(MemoriaInstrucao *memoria, IFID *ifid, EXMEM *exmem);
 		int get_pc();
+		void read_exmem();
 };
 
 #endif

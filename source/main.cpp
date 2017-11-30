@@ -42,6 +42,7 @@ int main(){
         ifstage.tick();
         idstage.tick();
         exstage.tick();
+        ifstage.read_exmem();
         memstage.tick();
         wbstage.tick();
         cout << ifid.getIR() << " " << ifid.getNPC();
