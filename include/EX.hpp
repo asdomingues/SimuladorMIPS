@@ -28,6 +28,9 @@ class EX {
 		void write_signals();
 		void read_idex();
 		string ir;
+		int b, a;
+		int imm, npc;
+
 	public:
 		void tick();
 		EX(Ula *alu, IDEXE *idex, EXMEM *exmem);
