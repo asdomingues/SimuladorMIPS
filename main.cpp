@@ -8,21 +8,12 @@
 
 using namespace std;
 
+
 int main(){
-    ifstream entrada;
-    entrada.open("entrada.txt", ios_base::in);
-    string linha;
     MemoriaInstrucao m;
     BancoDeRegistradores b(32);
-    int pc = 0;
-    while(getline(entrada, linha)){
-        if(linha != "sair"){
-            m.set_wdata(linha);
-            m.set_address(pc * 4);
-            m.write();
-        }
-        pc++;
-    }
+    m.load_instructions("entrada.txt");
+
 
     /*int numero = 0;
     while(numero != -1){
