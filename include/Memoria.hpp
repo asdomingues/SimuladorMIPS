@@ -1,9 +1,9 @@
 #ifndef MEMORIA_HPP
 #define MEMORIA_HPP
-#include "Registrador.hpp"
 #include <string>
 
 #define TAM 1024
+using namespace std;
 
 class Memoria{
 	public:

@@ -2,8 +2,8 @@
 #define MEM_HPP
 
 #include "Memoria.hpp"
-#include "MEMEX.hpp"
-#include "WBMEM.hpp"
+#include "EXMEM.hpp"
+#include "MEMWB.hpp"
 class Mem{
 	public:
 		Mem(EXMEM *exmem, MEMWB *memwb, string filename);

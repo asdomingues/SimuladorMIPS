@@ -12,7 +12,7 @@ TIME=time
 IN= < tests/0.in
 OUT=
 
-all: clean compile
+all: clean test-compile
 
 clean:
 	@find -name "*.swp" -exec rm -rf {} \;

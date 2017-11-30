@@ -5,6 +5,17 @@
 #include <cstdlib>
 #include "MemoriaInstrucao.hpp"
 #include "BancoDeRegistradores.hpp"
+#include "IFID.hpp"
+#include "IDEXE.hpp"
+#include "EXMEM.hpp"
+#include "MEMWB.hpp"
+#include "IF.hpp"
+#include "ID.hpp"
+#include "EX.hpp"
+#include "WB.hpp"
+#include "Mem.hpp"
+#include "Ula.hpp"
+#include "Memoria.hpp"
 
 using namespace std;
 
@@ -13,7 +24,7 @@ int main(){
 
     MemoriaInstrucao memoria_instrucao;
     IFID ifid;
-    ULA alu;
+    Ula alu;
     EXMEM exmem;
     MEMWB memwb;
     IDEXE idexe;
