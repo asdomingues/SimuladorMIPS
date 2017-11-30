@@ -44,7 +44,7 @@ int main(){
         exstage.tick();
         memstage.tick();
         wbstage.tick();
-        cout << ifid.getIR() << " " << ifid.getNPC();
+        cout << ifid.getIR() << " " << ifid.getNPC() << endl;
     }
 
 
