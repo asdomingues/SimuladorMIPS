@@ -1,5 +1,5 @@
-#ifndef MEMORIA_HPP
-#define MEMORIA_HPP
+#ifndef INSTRUCAO_HPP
+#define INSTRUCAO_HPP
 
 #include "Registrador.hpp"
 #define TAM 1024

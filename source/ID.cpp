@@ -46,7 +46,7 @@ void ID::controlSignals(){
 		results=split(ir,' ');
 	else{
 		results.resize(1);
-		results.at(0)=="nop";
+		results.at(0)="nop";
 	}
 	
 
