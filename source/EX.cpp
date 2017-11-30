@@ -13,6 +13,7 @@ EX::EX(Ula *alu, IDEXE *idex, EXMEM *exmem) {
 	this->idex = idex;
 	this->exmem = exmem;
 
+	this->ir = "";
 	this->reg_dst = false;
 	this->reg_write = false;
 	this->alu_src = false;
@@ -29,7 +30,7 @@ void EX::write_signals() {
 	exmem->set_mem_read(mem_read);
 	exmem->set_mem_write(mem_write);
 	exmem->set_mem_to_reg(mem_to_reg);
-	exmem->set_ir(idex->getIR());
+	exmem->set_ir(ir);
 }
 
 void EX::read_idex() {
@@ -41,6 +42,7 @@ void EX::read_idex() {
 	mem_write = idex->getMemWrite();
 	mem_to_reg = idex->getMemToReg();
 	alu_op = idex->getAluOP();
+	ir = idex->getIR();
 }
 
 void EX::tick() {
