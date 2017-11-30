@@ -6,7 +6,7 @@
 #include "WBMEM.hpp"
 class Mem{
 	public:
-		Mem();
+		Mem(EXMEM *exmem, MEMWB *memwb);
 		void tick();
 	private:
 		Memoria m = Memoria();

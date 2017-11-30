@@ -18,13 +18,23 @@ int main(){
     MEMWB memwb;
     IDEXE idexe;
     BancoDeRegistradores banco(32);
-    m.load_instructions("entrada.txt");
+    memoria_instrucao.load_instructions("entrada.txt");
 
-    //criar tudo
+    //criar todos os estagios
     IF ifstage(&memoria_instrucao, &ifid, &exmem);
     ID idstage(&banco, &ifid, &idexe);
     EX exstage(&alu, &idexe, &exmem);
+    MEM memstage(&exmem, &memwb);
     WB wbstage(&banco, &memwb);
+
+    for(int i=0; i<memoria_instrucao.get_n_instructions(); i++){
+        ifstage.tick();
+        idstage.tick();
+        exstage.tick();
+        memstage.tick();
+        wbstage.tick();
+    }
+
 
 
     /*int numero = 0;
