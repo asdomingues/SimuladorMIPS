@@ -10,8 +10,8 @@ class Mem{
 		void tick();
 	private:
 		Memoria m;
-		EXMEM exmem;
-		MEMWB memwb;
+		EXMEM *exmem;
+		MEMWB *memwb;
 		bool mem_write = false;
 		bool mem_read = false;
 		bool mem_to_reg = false;

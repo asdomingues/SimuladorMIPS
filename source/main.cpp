@@ -13,9 +13,9 @@
 #include "ID.hpp"
 #include "EX.hpp"
 #include "WB.hpp"
+#include "Memoria.hpp"
 #include "Mem.hpp"
 #include "Ula.hpp"
-#include "Memoria.hpp"
 
 using namespace std;
 
@@ -35,7 +35,7 @@ int main(){
     IF ifstage(&memoria_instrucao, &ifid, &exmem);
     ID idstage(&banco, &ifid, &idexe);
     EX exstage(&alu, &idexe, &exmem);
-    MEM memstage(&exmem, &memwb);
+    Mem memstage(&exmem, &memwb, "Memoria does not name a type.txt");
     WB wbstage(&banco, &memwb);
 
     for(int i=0; i<memoria_instrucao.get_n_instructions(); i++){

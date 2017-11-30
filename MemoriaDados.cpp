@@ -1,6 +1,6 @@
-#include "Memoria.hpp"
+#include "MemoriaDados.hpp"
 
-Memoria::Memoria(){
+MemoriaDados::MemoriaDados(){
 	address = 0;
 	w_data = 0;
 	for(int i = 0; i < TAM; i++)
@@ -8,24 +8,24 @@ Memoria::Memoria(){
 }
 
 // TODO tratar end > size
-void Memoria::set_address(int val){
+void MemoriaDados::set_address(int val){
 	val /= 4;
 	address = val % TAM;
 }
 
-int Memoria::read(){
+int MemoriaDados::read(){
 	return dados[address];
 }
 
-void Memoria::set_wdata(int val){
+void MemoriaDados::set_wdata(int val){
 	w_data = val;
 }
 
-void Memoria::write(){
+void MemoriaDados::write(){
 	dados[address] = w_data;
 }
 
-int Memoria::load_memory(string name){
+int MemoriaDados::load_memory(string name){
 	FILE *fp = fopen(name.c_str(), "r");
 	int data, i;
 	
