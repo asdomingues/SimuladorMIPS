@@ -29,13 +29,13 @@ int main(){
     MEMWB memwb;
     IDEXE idexe;
     BancoDeRegistradores banco(32);
-    memoria_instrucao.load_instructions("entrada.txt");
+    memoria_instrucao.load_instructions("instrucoes.in");
 
     //criar todos os estagios
     IF ifstage(&memoria_instrucao, &ifid, &exmem);
     ID idstage(&banco, &ifid, &idexe);
     EX exstage(&alu, &idexe, &exmem);
-    Mem memstage(&exmem, &memwb, "Memoria does not name a type.txt");
+    Mem memstage(&exmem, &memwb, "registrador.in");
     WB wbstage(&banco, &memwb);
 
     while(ifstage.get_pc()<memoria_instrucao.get_n_instructions()){
