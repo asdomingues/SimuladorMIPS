@@ -13,13 +13,13 @@ EX::EX(Ula *alu, IDEXE *idex, EXMEM *exmem) {
 	this->idex = idex;
 	this->exmem = exmem;
 
-	this->reg_dst = NULL;
-	this->reg_write = NULL;
-	this->alu_src = NULL;
-	this->branch = NULL;
-	this->mem_read = NULL;
-	this->mem_write = NULL;
-	this->mem_to_reg = NULL;
+	this->reg_dst = false;
+	this->reg_write = false;
+	this->alu_src = false;
+	this->branch = false;
+	this->mem_read = false;
+	this->mem_write = false;
+	this->mem_to_reg = false;
 	this->alu_op = "";
 }
 

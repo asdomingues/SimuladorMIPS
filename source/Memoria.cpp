@@ -1,6 +1,5 @@
 #include "Memoria.hpp"
 
-using namespace std;
 Memoria::Memoria(){
 	address = 0;
 	w_data = 0;
@@ -26,13 +25,15 @@ void Memoria::write(){
 	dados[address] = w_data;
 }
 
-int Memoria::load_memory(char *name){
-	FILE *fp = fopen(name, "r");
-	int data;
-	if(fp == NULL){
+int Memoria::load_memory(string name){
+	FILE *fp = fopen(name.c_str(), "r");
+	int data, i;
+	
+	if(fp == NULL)
 		return -1;
-	}
-	for(int i = 0; i < TAM && fscanf(fp, "%d", &data) > 0; i++){
+
+	for(i = 0; i < TAM && fscanf(fp, "%d", &data) > 0; i++)
 		this->dados[i] = data;
-	}
+
+	return i;
 }

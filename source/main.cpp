@@ -5,6 +5,17 @@
 #include <cstdlib>
 #include "MemoriaInstrucao.hpp"
 #include "BancoDeRegistradores.hpp"
+#include "IFID.hpp"
+#include "IDEXE.hpp"
+#include "EXMEM.hpp"
+#include "MEMWB.hpp"
+#include "IF.hpp"
+#include "ID.hpp"
+#include "EX.hpp"
+#include "WB.hpp"
+#include "Memoria.hpp"
+#include "Mem.hpp"
+#include "Ula.hpp"
 
 using namespace std;
 
@@ -13,18 +24,28 @@ int main(){
 
     MemoriaInstrucao memoria_instrucao;
     IFID ifid;
-    ULA alu;
+    Ula alu;
     EXMEM exmem;
     MEMWB memwb;
     IDEXE idexe;
     BancoDeRegistradores banco(32);
-    m.load_instructions("entrada.txt");
+    memoria_instrucao.load_instructions("entrada.txt");
 
-    //criar tudo
+    //criar todos os estagios
     IF ifstage(&memoria_instrucao, &ifid, &exmem);
     ID idstage(&banco, &ifid, &idexe);
     EX exstage(&alu, &idexe, &exmem);
+    Mem memstage(&exmem, &memwb, "Memoria does not name a type.txt");
     WB wbstage(&banco, &memwb);
+
+    for(int i=0; i<memoria_instrucao.get_n_instructions(); i++){
+        ifstage.tick();
+        idstage.tick();
+        exstage.tick();
+        memstage.tick();
+        wbstage.tick();
+    }
+
 
 
     /*int numero = 0;

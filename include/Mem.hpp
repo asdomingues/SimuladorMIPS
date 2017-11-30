@@ -2,16 +2,16 @@
 #define MEM_HPP
 
 #include "Memoria.hpp"
-#include "MEMEX.hpp"
-#include "WBMEM.hpp"
+#include "EXMEM.hpp"
+#include "MEMWB.hpp"
 class Mem{
 	public:
-		Mem();
+		Mem(EXMEM *exmem, MEMWB *memwb, string filename);
 		void tick();
 	private:
-		Memoria m = Memoria();
-		EXMEM exmem;
-		MEMWB memwb;
+		Memoria m;
+		EXMEM *exmem;
+		MEMWB *memwb;
 		bool mem_write = false;
 		bool mem_read = false;
 		bool mem_to_reg = false;

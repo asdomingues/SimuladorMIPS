@@ -5,6 +5,8 @@
 
 #define NBITS 8
 
+using namespace std;
+
 class Ula
 {
     public:
@@ -14,6 +16,7 @@ class Ula
         void set_aluIN1(int valor);
         void set_aluIN2(int valor);
         void set_aluOP(string valor);
+		int get_aluOUT();
     private:
         int aluIN1, aluIN2, aluOUT;
 };

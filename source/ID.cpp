@@ -46,7 +46,7 @@ void ID::controlSignals(){
 		results=split(ir,' ');
 	else{
 		results.resize(1);
-		results.at(0)=="nop";
+		results.at(0)="nop";
 	}
 	
 
@@ -226,7 +226,7 @@ void ID::setIDEXE(IDEXE *idexe){
 	this->idexe=idexe;
 }
 
-
+/*
 int main(){
 	string test = "lw $r1, 100($r2)";
 	string test2 ="add $r3, $r2, $r1";
@@ -260,3 +260,4 @@ int main(){
 
 	return 0;
 }
+*/
