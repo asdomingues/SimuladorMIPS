@@ -8,21 +8,21 @@
 
 using namespace std;
 
+
 int main(){
-    ifstream entrada;
-    entrada.open("entrada.txt", ios_base::in);
-    string linha;
-    MemoriaInstrucao m;
-    BancoDeRegistradores b(32);
-    int pc = 0;
-    while(getline(entrada, linha)){
-        if(linha != "sair"){
-            m.set_wdata(linha);
-            m.set_address(pc * 4);
-            m.write();
-        }
-        pc++;
-    }
+    MemoriaInstrucao memoria_instrucao;
+    IFID ifid;
+    EXMEM exmem;
+    MEMWB memwb;
+    IDEXE idexe;
+    BancoDeRegistradores banco(32);
+    m.load_instructions("entrada.txt");
+
+    //criar tudo
+    IF ifstage(&memoria_instrucao, &ifid, &exmem);
+    ID idstage(&banco, &ifid, &idexe);
+    EX exstage();
+
 
     /*int numero = 0;
     while(numero != -1){
