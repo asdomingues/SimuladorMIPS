@@ -26,7 +26,7 @@ void Memoria::write(){
 	dados[address] = w_data;
 }
 
-int Memoria::load_memory(char *name){
+int Memoria::load_memory(string name){
 	FILE *fp = fopen(name, "r");
 	int data;
 	if(fp == NULL){

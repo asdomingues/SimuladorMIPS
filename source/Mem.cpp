@@ -2,7 +2,7 @@
 #include "EXMEM.hpp"
 #include "MEMWB.hpp"
 
-Mem::Mem(EXMEM *exmem, MEMWB *memwb){
+Mem::Mem(EXMEM *exmem, MEMWB *memwb, string filename):m(filename){
 	this->exmem = exmem;
 	this->memwb = memwb;
 }

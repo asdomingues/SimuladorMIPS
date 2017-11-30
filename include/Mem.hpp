@@ -6,10 +6,10 @@
 #include "WBMEM.hpp"
 class Mem{
 	public:
-		Mem(EXMEM *exmem, MEMWB *memwb);
+		Mem(EXMEM *exmem, MEMWB *memwb, string filename);
 		void tick();
 	private:
-		Memoria m = Memoria();
+		Memoria m;
 		EXMEM exmem;
 		MEMWB memwb;
 		bool mem_write = false;
