@@ -49,6 +49,9 @@ int main(){
         cout << "idexe: " << idexe.getIR() << " " << idexe.getNPC() << endl;
         cout << "exmem: " << exmem.get_ir() << " " << endl;
         cout << "memwb: " << memwb.getir() << " " << endl;
+	cout << "in1 :" << idexe.getA() << endl;
+	cout << "in2 :" << idexe.getB() << endl;
+	cout << "aluout: " << exmem.get_alu_out() << " " << endl;
     }
 
 

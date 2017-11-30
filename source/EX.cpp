@@ -51,8 +51,8 @@ void EX::tick() {
 
 	exmem->set_branch_address(idex->getNPC() + idex->getImm() << 2);
 
-	m.set_entrada(idex->getB(), 0);
-	m.set_entrada(idex->getImm(), 1);
+	m.set_entrada(0,idex->getB());
+	m.set_entrada(1,idex->getImm());
 	select = idex->getAluSrc() == true ? 1 : 0;
 	alu->set_aluIN1(idex->getA());
 	alu->set_aluIN2(m.get_saida(select));
@@ -61,8 +61,8 @@ void EX::tick() {
 
 	exmem->set_alu_in2(idex->getB());
 
-	m.set_entrada(idex->getRT(), 0);
-	m.set_entrada(idex->getRD(), 1);
+	m.set_entrada(0, idex->getRT());
+	m.set_entrada(1,idex->getRD());
 	select = idex->getRegDest() == true ? 1 : 0;
 	exmem->set_write_reg_address(m.get_saida(select));
 	
@@ -74,4 +74,4 @@ void EX::tick() {
 int main(void) {
 	return 0;
 }
-*/
+*

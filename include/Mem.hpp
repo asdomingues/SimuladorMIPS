@@ -21,6 +21,7 @@ class Mem{
 		int read_data = 0;
 		int write_reg_address = 0;
 		int alu_out = 0;
+		string ir;
 
 };
 
