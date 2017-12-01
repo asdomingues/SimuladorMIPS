@@ -34,7 +34,7 @@
 	}
 
 	void IF::read_tick(){
-
+	
 		read_exmem();
 	
 	}

@@ -70,7 +70,7 @@ int main(){
 		cout << "imm: " << idexe.getImm() << endl;
 		cout << "RD " << idexe.getRD() << endl;
 		cout << "RT: " << idexe.getRT() << endl;
-		cout << "A " << idexe.getA() << endl;
+		cout << "A: " << idexe.getA() << endl;
 		cout << "B: " << idexe.getB() << endl;
 		cout << "Sinais:" <<endl;
 		cout << "RegDest: " << idexe.getRegDest() << endl;
@@ -80,8 +80,21 @@ int main(){
 		cout << "MemRead: " << idexe.getMemRead() << endl;
 		cout << "MemWrite: " << idexe.getMemWrite() << endl;
 		cout << "MemToReg: " << idexe.getMemToReg() << endl;
-		cout << "AluOP: " << idexe.getAluOP() << endl;
+		cout << "AluOP: " << idexe.getAluOP() << endl; 
+		cout << endl;
+		cout << "exmem:" << endl;
+		cout << "branch address: "<< exmem.get_branch_address() << endl;
+		cout << "alu_zero: "<< exmem.get_alu_zero() << endl;
+		cout << "alu_out: "<< exmem.get_alu_out() << endl;
+		cout << "alu_in2: " << exmem.get_alu_in2() << endl;
+		cout << "write_reg_address: " << exmem.get_write_reg_address() << endl;
 
+		cout << "reg_write: " << exmem.get_reg_write() << endl;
+		cout << "branch: " << exmem.get_branch() << endl;
+		cout << "mem_read: "<< exmem.get_mem_read() << endl;
+		cout << "mem_write:" << exmem.get_mem_write() << endl;
+		cout << "mem_to_reg:" << exmem.get_mem_to_reg() << endl;
+		cout << endl << endl;
     }while((++counter) < 5);
 
 
