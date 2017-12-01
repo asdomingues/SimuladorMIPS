@@ -43,6 +43,10 @@
 	int IF::get_pc(){
 		return pc.get_valor();
 	}
+
+	int IF::get_pcSrc(){
+		return pcSrc;
+	}
 /*
 	int main(void){
 
