@@ -21,12 +21,11 @@ void BancoDeRegistradores::reg_write(){
 	this->banco[this->write_register].set_valor(this->write_data);
 }
 BancoDeRegistradores::BancoDeRegistradores(int size){
-	this->banco = (Registrador*) malloc(sizeof(Registrador) * size);
 	for(int i = 0; i < size; i++){
 		stringstream ss;
 		ss << i;		
 		string s = "R" + ss.str();
-		this->banco[i] = Registrador(s);
+		this->banco[i].set_nome(s);
 	}
 }
 

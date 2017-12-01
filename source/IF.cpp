@@ -3,12 +3,13 @@
 	using namespace std;
 
 
-	IF::IF(MemoriaInstrucao *memoria, IFID *ifid, EXMEM *exmem): pc("PC"){
+	IF::IF(MemoriaInstrucao *memoria, IFID *ifid, EXMEM *exmem){
 		this->memoria=memoria;
 		this->ifid=ifid;
 		this->exmem=exmem;
 		ir="";
 		pc.set_valor(0);
+		pc.set_nome("pc");
 	}
 
 	void IF::read_exmem(){

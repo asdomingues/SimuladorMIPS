@@ -11,7 +11,7 @@ class BancoDeRegistradores{
 		void reg_write();
 		BancoDeRegistradores(int size);
 	private:
-		Registrador *banco;
+		Registrador banco[NREGISTRADORES];
 		int write_register, write_data;
 };
 #endif

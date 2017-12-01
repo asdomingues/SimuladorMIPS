@@ -10,11 +10,12 @@ private:
     string nome;
     int valor;
 public:
-    Registrador(string nome);
+    Registrador();
 
     string get_nome();
     int get_valor();
     void set_valor(int valor);
+    void set_nome(string nome);
 };
 
 #endif // REGISTRADOR_H

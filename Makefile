@@ -9,7 +9,7 @@ BOX=valgrind
 BFLAGS=--leak-check=full --show-leak-kinds=all --track-origins=yes
 
 TIME=time
-IN= < tests/0.in
+IN= < registrador.in
 OUT=
 
 all: clean test-compile
@@ -28,9 +28,9 @@ test-compile:
 	$(COMPILER) $(SOURCE)* -I $(INCLUDE) -o $(BUILD)$(BIN) $(CFLAGS)
 
 run:
-	@$(BUILD)$(PROGRAM)
+	@$(BUILD)$(BIN)
 
 test-run:
-	$(TIME) $(BOX) $(BFLAGS) $(BUILD)$(PROGRAM) $(IN) $(OUT)
+	$(TIME) $(BOX) $(BFLAGS) $(BUILD)$(BIN) $(IN) $(OUT)
 
 #.PHONY: all clean compile run
