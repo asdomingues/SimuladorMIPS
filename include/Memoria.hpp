@@ -1,6 +1,7 @@
 #ifndef MEMORIA_HPP
 #define MEMORIA_HPP
 #include <string>
+#include <stdio.h>
 
 #define TAM 1024
 using namespace std;

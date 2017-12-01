@@ -195,14 +195,12 @@ void ID::readIFID(){
 	ir = ifid->getIR();
 }
 
-void ID::tick(){
+void ID::read_tick(){
+	readIFID();	
+}
 
-	//executar
-		//generate new signals
-		//read registers
-	//escrever id/exe
-	//ler if/id
-	
+void ID::write_tick(){
+
 	controlSignals();
 	//read registers and save to id/exe
 
@@ -215,7 +213,7 @@ void ID::tick(){
 	idexe->setNPC(npc);
 
 	writeSignals();
-	readIFID();	
+	
 }
 
 void ID::setIFID(IFID *ifid){

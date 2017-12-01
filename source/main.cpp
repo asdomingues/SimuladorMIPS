@@ -40,24 +40,48 @@ int main(){
     int counter = 0;
 
     do{
-	ifstage.tick();
-        idstage.tick();
-        exstage.tick();
-        ifstage.read_exmem();
-        memstage.tick();
-        wbstage.tick();
-	if(ifid.getIR() != "") counter = 0;
+		ifstage.write_tick();
+		wbstage.write_tick();
+        idstage.write_tick();
+        exstage.write_tick();
+        memstage.write_tick();
+
+        ifstage.read_tick();
+        idstage.read_tick();
+        exstage.read_tick();
+        memstage.read_tick();
+        wbstage.read_tick();
+        
+
+		if(ifid.getIR() != "") counter = 0;
+
         cout << "ifid: " << ifid.getIR() << " " << ifid.getNPC() << endl;
         cout << "idexe: " << idexe.getIR() << " " << idexe.getNPC() << endl;
         cout << "exmem: " << exmem.get_ir() << " " << endl;
         cout << "memwb: " << memwb.getir() << " " << endl;
-	cout << "R0 : " << banco.read_reg1(0) << endl;
-	cout << "R1 : " << banco.read_reg1(1) << endl;
-	cout << "R2 : " << banco.read_reg1(2) << endl;
-	cout << "R3 : " << banco.read_reg1(3) << endl;
-	cout << "in1 :" << idexe.getA() << endl;
-	cout << "in2 :" << idexe.getB() << endl;
-	cout << "aluout: " << memwb.getALUOut() << " " << endl;
+		cout << "R0 : " << banco.read_reg1(0) << endl;
+		cout << "R1 : " << banco.read_reg1(1) << endl;
+		cout << "R2 : " << banco.read_reg1(2) << endl;
+		cout << "R3 : " << banco.read_reg1(3) << endl;
+		cout << "in1 :" << idexe.getA() << endl;
+		cout << "in2 :" << idexe.getB() << endl;
+		cout << "aluout: " << memwb.getALUOut() << " " << endl;
+		cout << "idex:" <<endl;
+		cout << "imm: " << idexe.getImm() << endl;
+		cout << "RD " << idexe.getRD() << endl;
+		cout << "RT: " << idexe.getRT() << endl;
+		cout << "A " << idexe.getA() << endl;
+		cout << "B: " << idexe.getB() << endl;
+		cout << "Sinais:" <<endl;
+		cout << "RegDest: " << idexe.getRegDest() << endl;
+		cout << "RegWrite: " << idexe.getRegWrite() << endl;
+		cout << "AluSrc: " << idexe.getAluSrc() << endl;
+		cout << "Branch: " << idexe.getBranch() << endl;
+		cout << "MemRead: " << idexe.getMemRead() << endl;
+		cout << "MemWrite: " << idexe.getMemWrite() << endl;
+		cout << "MemToReg: " << idexe.getMemToReg() << endl;
+		cout << "AluOP: " << idexe.getAluOP() << endl;
+
     }while((++counter) < 5);
 
 

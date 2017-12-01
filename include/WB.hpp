@@ -19,7 +19,8 @@ class WB{
 	
 		//numero do registrador de destino
 	public:
-		void tick();
+		void read_tick();
+		void write_tick();
 		WB(BancoDeRegistradores *banco, MEMWB *memwb);
 
 };

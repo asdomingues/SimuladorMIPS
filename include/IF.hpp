@@ -20,7 +20,8 @@ class IF{
 
 		//numero do registrador de destino
 	public:
-		void tick();
+		void write_tick();
+		void read_tick();
 		IF(MemoriaInstrucao *memoria, IFID *ifid, EXMEM *exmem);
 		int get_pc();
 		void read_exmem();

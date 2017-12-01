@@ -15,7 +15,16 @@ using namespace std;
 
 	}
 
-	void WB::tick(){
+	void WB::read_tick(){
+		//ler mem/wb
+		alu_out = memwb->getALUOut();
+		l_memory_data = memwb->getLMemoryData();
+		mem_to_reg = memwb->getMemtoReg();
+		reg_address = memwb->get_reg_address();
+		reg_write = memwb->getRegWrite();
+	}
+
+	void WB::write_tick(){
 		int data;
 		
 		//escreve na memoria
@@ -30,12 +39,7 @@ using namespace std;
 			banco->set_wdata(data);
 			banco->reg_write();
 		}
-		//ler mem/wb
-		alu_out = memwb->getALUOut();
-		l_memory_data = memwb->getLMemoryData();
-		mem_to_reg = memwb->getMemtoReg();
-		reg_address = memwb->get_reg_address();
-		reg_write = memwb->getRegWrite();
+	
 		
 	}
 

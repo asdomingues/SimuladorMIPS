@@ -51,7 +51,11 @@ void EX::read_idex() {
 	rd = idex->getRD();
 }
 
-void EX::tick() {
+void EX::read_tick(){
+	read_idex();
+}
+
+void EX::write_tick() {
 	Mux m = Mux(2);
 	int select;
 
@@ -73,7 +77,7 @@ void EX::tick() {
 	exmem->set_write_reg_address(m.get_saida(select));
 	
 	write_signals();
-	read_idex();
+
 }
 
 /*

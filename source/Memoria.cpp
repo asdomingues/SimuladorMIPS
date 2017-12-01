@@ -1,4 +1,4 @@
-#include "../include/Memoria.hpp"
+#include "Memoria.hpp"
 /*
 #include <iostream>
 using namespace std;
