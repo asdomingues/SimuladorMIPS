@@ -1,5 +1,8 @@
-#include "Memoria.hpp"
-
+#include "../include/Memoria.hpp"
+/*
+#include <iostream>
+using namespace std;
+*/
 Memoria::Memoria(){
 	address = 0;
 	w_data = 0;
@@ -37,3 +40,15 @@ int Memoria::load_memory(string name){
 
 	return i;
 }
+/*
+int main (int argc, char * argv[]){
+	Memoria m;
+	m.load_memory("registrador.in");
+	m.set_address(0);
+	cout << m.read() << endl;
+	m.set_address(4);
+	cout << m.read() << endl;
+	m.set_address(8);
+	cout << m.read() << endl;
+}
+*/

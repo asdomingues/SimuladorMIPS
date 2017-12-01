@@ -51,9 +51,13 @@ int main(){
         cout << "idexe: " << idexe.getIR() << " " << idexe.getNPC() << endl;
         cout << "exmem: " << exmem.get_ir() << " " << endl;
         cout << "memwb: " << memwb.getir() << " " << endl;
+	cout << "R0 : " << banco.read_reg1(0) << endl;
+	cout << "R1 : " << banco.read_reg1(1) << endl;
+	cout << "R2 : " << banco.read_reg1(2) << endl;
+	cout << "R3 : " << banco.read_reg1(3) << endl;
 	cout << "in1 :" << idexe.getA() << endl;
 	cout << "in2 :" << idexe.getB() << endl;
-	cout << "aluout: " << exmem.get_alu_out() << " " << endl;
+	cout << "aluout: " << memwb.getALUOut() << " " << endl;
     }while((++counter) < 5);
 
 
