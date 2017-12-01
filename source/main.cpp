@@ -24,9 +24,10 @@ int main(){
 
     MemoriaInstrucao memoria_instrucao;
     IFID ifid;
-    Ula alu;
+    ULA alu;
     EXMEM exmem;
     MEMWB memwb;
+    void setRD(int rd);
     IDEXE idexe;
     BancoDeRegistradores banco(32);
     memoria_instrucao.load_instructions("entrada.txt");
@@ -35,7 +36,7 @@ int main(){
     IF ifstage(&memoria_instrucao, &ifid, &exmem);
     ID idstage(&banco, &ifid, &idexe);
     EX exstage(&alu, &idexe, &exmem);
-    Mem memstage(&exmem, &memwb, "Memoria does not name a type.txt");
+    MEM memstage(&exmem, &memwb);
     WB wbstage(&banco, &memwb);
 
     for(int i=0; i<memoria_instrucao.get_n_instructions(); i++){
@@ -46,18 +47,38 @@ int main(){
         wbstage.tick();
     }
 
-
+    int numero = 0;
+    while(numero != -1){
+        printf("                              IF/ID                              ID/EXE                            EXE/MEM                               MEM/WB\n");
+        printf("                              ____             Estágio            ____            Estágio            ____            Estágio              ____ \n");
+        printf("       Estágio               |    |              ID              |    |             EXE             |    |             MEM               |    |\n");
+        printf("          IF                 |    |                              |    |                             |    |                               |    |\n");
+        printf("                             |    |          Registrador         |    |                             |    |          Memória de           |    |\n");
+        printf(" ___       ____________      |    |      __________________      |    |            ULA              |    |            dados              |    |\n");
+        printf("|   |     |Memoria     |     |    |---->|ReadReg1          |     |    |      _________________      |    |      ___________________      |    |\n");
+        printf("|PC |     |   de       |     |    |     |  %3d      RdData1|---->|    |     |                 |     |    |     |                   |     |    |\n");
+        printf("|   |---->|Instrucao   |---->|    |     |ReadReg2     %3d  |     |    |---->|ALUIN1           |     |    |---->|Address      RdData|---->|    |\n");
+        printf("|%3d|     |%12s|     |    |---->|  %3d      RdData2|---->|    |     |           ALUOut|---->|    |     |                   |     |    |\n", /*ifstage.get_pc()*/0, /*IFID.getIR()*/"add R1, 100", ID.);
+        printf("|___|     |____________|     |    |     |WrREG        %3d  |     |    |---->|ALUIN2           |     |    |     |                   |     |    |\n");
+        printf("                             |    |     |  %3d             |     |    |     |_________________|     |    |---->|WrData             |     |    |\n");
+        printf("                             |    |     |WrData            |     |    |                             |    |     |___________________|     |    |\n");
+        printf("                             |    |     |  %3d             |     |    |                             |    |                               |    |\n");
+        printf("                             |    |     |__________________|     |    |                             |    |                               |    |\n");
+        printf("                             |    |                              |    |                             |    |                               |    |\n");
+        printf("                             |____|                              |____|                             |____|                               |____|\n");
+        cin >> numero;
+        system("clear");
+    }
 
     /*int numero = 0;
     while(numero != -1){
-
         printf("     ___       __________    \n");
         printf("    |   |     | Memoria  |   \n");
         printf("    |PC |     |    de    |   \n");
         printf("    |   |     | Instrucao|   \n");
         printf("    |%3d|->   |          |   \n", numero);
         printf("    |___|     |__________|   \n");
-        cin >> numero;
+        for(int i = 100000000; i > 0; i--);
         system("clear");
         printf("     ___       __________    \n");
         printf("    |   |     | Memoria  |   \n");
@@ -65,7 +86,7 @@ int main(){
         printf("    |   |     | Instrucao|   \n");
         printf("    |%3d|-->  |          |   \n", numero);
         printf("    |___|     |__________|   \n");
-        cin >> numero;
+        for(int i = 100000000; i > 0; i--);
         system("clear");
         printf("     ___       __________    \n");
         printf("    |   |     | Memoria  |   \n");
@@ -73,8 +94,17 @@ int main(){
         printf("    |   |     | Instrucao|   \n");
         printf("    |%3d|---> |          |   \n", numero);
         printf("    |___|     |__________|   \n");
-        cin >> numero;
+        for(int i = 100000000; i > 0; i--);
         system("clear");
+        printf("     ___       __________    \n");
+        printf("    |   |     | Memoria  |   \n");
+        printf("    |PC |     |    de    |   \n");
+        printf("    |   |     | Instrucao|   \n");
+        printf("    |%3d|---->|          |   \n", numero);
+        printf("    |___|     |__________|   \n");
+        for(int i = 100000000; i > 0; i--);
+        system("clear");
+        //cin >> numero;
     }*/
 
     return 0;
