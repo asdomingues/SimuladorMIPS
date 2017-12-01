@@ -27,7 +27,7 @@ using namespace std;
 	void WB::write_tick(){
 		int data;
 		
-		//escreve na memoria
+		//escreve no banco de registradores
 		if(reg_write){
 			//usando mux		
 			mux.set_entrada(0, alu_out);
