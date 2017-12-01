@@ -12,7 +12,7 @@ class WB{
 		MEMWB *memwb;
 		Mux mux;
 		bool reg_write;
-		int alu_out;
+		int alu_out = 0;
 		int l_memory_data;
 		bool mem_to_reg;
 		int reg_address;

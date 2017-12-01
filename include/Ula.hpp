@@ -18,7 +18,7 @@ class Ula
         void set_aluOP(string valor);
 		int get_aluOUT();
     private:
-        int aluIN1, aluIN2, aluOUT;
+        int aluIN1, aluIN2, aluOUT = 0;
 };
 
 #endif // ULA_H
