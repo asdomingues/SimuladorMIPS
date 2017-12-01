@@ -61,12 +61,12 @@ void EX::tick() {
 	m.set_entrada(1, imm);
 	select = alu_src == true ? 1 : 0;
 	alu->set_aluIN1(a);
+
 	alu->set_aluIN2(m.get_saida(select));
 	alu->set_aluOP(alu_op);
 	exmem->set_alu_out(alu->operation());
 
 	exmem->set_alu_in2(b);
-
 	m.set_entrada(0, rt);
 	m.set_entrada(1, rd);
 	select = reg_dst == true ? 1 : 0;
@@ -80,4 +80,4 @@ void EX::tick() {
 int main(void) {
 	return 0;
 }
-*/
+*

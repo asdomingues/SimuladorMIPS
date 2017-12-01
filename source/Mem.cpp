@@ -9,7 +9,9 @@ Mem::Mem(EXMEM *exmem, MEMWB *memwb, string filename){
 }
 //checar timeline
 void Mem::tick(){
-
+	memwb->setir(this->ir);
+	this->ir = exmem->get_ir();
+	
 	memwb->setALUOut(this->alu_out);
 	this->alu_out = exmem->get_alu_out();
 	
