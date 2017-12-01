@@ -11,16 +11,7 @@
 		pc.set_valor(0);
 	}
 
-	void IF::tick(){
-		//le memoria
-		memoria->set_address(pc.get_valor());
-		ir = memoria->read();
-		
-		//incrementa PC
-		pc.set_valor(pc.get_valor()+4);
-
-		bool pcSrc;
-
+	void IF::read_exmem(){
 		//pegue do exmem
 		//and branch e o zero
 		pcSrc = exmem->get_alu_zero() && exmem->get_branch();
@@ -28,6 +19,16 @@
 		mux.set_entrada(0, pc.get_valor());
 		mux.set_entrada(1, exmem->get_branch_address());
 		pc.set_valor(mux.get_saida(pcSrc));
+	}
+
+
+	void IF::tick(){
+		//le memoria
+		memoria->set_address(pc.get_valor());
+		ir = memoria->read();
+		
+		//incrementa PC
+		pc.set_valor(pc.get_valor()+4);
 	
 		//escreve no ifid
 		ifid->setIR(ir);

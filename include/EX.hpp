@@ -4,6 +4,7 @@
 #include "Ula.hpp"
 #include "IDEXE.hpp"
 #include "EXMEM.hpp"
+#include <string>
 
 class EX {
 	private:
@@ -26,6 +27,10 @@ class EX {
 		bool reg_write;
 		void write_signals();
 		void read_idex();
+		string ir;
+		int b, a, rt, rd;
+		int imm, npc;
+
 	public:
 		void tick();
 		EX(Ula *alu, IDEXE *idex, EXMEM *exmem);

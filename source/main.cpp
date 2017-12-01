@@ -29,22 +29,32 @@ int main(){
     MEMWB memwb;
     IDEXE idexe;
     BancoDeRegistradores banco(32);
-    memoria_instrucao.load_instructions("entrada.txt");
+    memoria_instrucao.load_instructions("instrucoes.in");
 
     //criar todos os estagios
     IF ifstage(&memoria_instrucao, &ifid, &exmem);
     ID idstage(&banco, &ifid, &idexe);
     EX exstage(&alu, &idexe, &exmem);
-    Mem memstage(&exmem, &memwb, "Memoria does not name a type.txt");
+    Mem memstage(&exmem, &memwb, "registrador.in");
     WB wbstage(&banco, &memwb);
+    int counter = 0;
 
-    for(int i=0; i<memoria_instrucao.get_n_instructions(); i++){
-        ifstage.tick();
+    do{
+	ifstage.tick();
         idstage.tick();
         exstage.tick();
+        ifstage.read_exmem();
         memstage.tick();
         wbstage.tick();
-    }
+	if(ifid.getIR() != "") counter = 0;
+        cout << "ifid: " << ifid.getIR() << " " << ifid.getNPC() << endl;
+        cout << "idexe: " << idexe.getIR() << " " << idexe.getNPC() << endl;
+        cout << "exmem: " << exmem.get_ir() << " " << endl;
+        cout << "memwb: " << memwb.getir() << " " << endl;
+	cout << "in1 :" << idexe.getA() << endl;
+	cout << "in2 :" << idexe.getB() << endl;
+	cout << "aluout: " << exmem.get_alu_out() << " " << endl;
+    }while((++counter) < 5);
 
 
 
