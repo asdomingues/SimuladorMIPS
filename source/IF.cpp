@@ -22,18 +22,22 @@
 		pc.set_valor(mux.get_saida(pcSrc));
 	}
 
-
-	void IF::tick(){
+	void IF::write_tick(){
 		//le memoria
 		memoria->set_address(pc.get_valor());
 		ir = memoria->read();
-		
 		//incrementa PC
 		pc.set_valor(pc.get_valor()+4);
-	
+
 		//escreve no ifid
 		ifid->setIR(ir);
 		ifid->setNPC(pc.get_valor());
+	}
+
+	void IF::read_tick(){
+	
+		read_exmem();
+	
 	}
 
 	int IF::get_pc(){

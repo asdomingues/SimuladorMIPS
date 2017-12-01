@@ -49,7 +49,7 @@ void ID::controlSignals(){
 		results.at(0)="nop";
 	}
 	
-
+	//cout << "string na id: " << results.at(0) << endl;
 	//find what type of instruction it is
 	//according to type
 	//generate signals
@@ -164,13 +164,13 @@ void ID::controlSignals(){
 				//cout << "NOP\n";
 				//gerar sinais
 				aluOP = "";
-				regDest=true;
+				regDest=false;
 				aluSrc=false;
 				branch=false;
 				memRead=false;
 				memWrite=false;
 				memToReg=false;
-				regWrite=true;
+				regWrite=false;
 				rt=rd=rs=imm=0;
 			}
 		}
@@ -195,14 +195,12 @@ void ID::readIFID(){
 	ir = ifid->getIR();
 }
 
-void ID::tick(){
+void ID::read_tick(){
+	readIFID();	
+}
 
-	//executar
-		//generate new signals
-		//read registers
-	//escrever id/exe
-	//ler if/id
-	
+void ID::write_tick(){
+
 	controlSignals();
 	//read registers and save to id/exe
 
@@ -215,7 +213,7 @@ void ID::tick(){
 	idexe->setNPC(npc);
 
 	writeSignals();
-	readIFID();	
+	
 }
 
 void ID::setIFID(IFID *ifid){

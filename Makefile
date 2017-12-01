@@ -4,7 +4,7 @@ BUILD=./build/
 BIN=main
 
 COMPILER=g++
-CFLAGS=-std=c++11 -g -Wall -Wextra -Wfatal-errors -Wno-parentheses
+CFLAGS=-std=c++11 -g -Wall -Wextra -Wfatal-errors
 BOX=valgrind
 BFLAGS=--leak-check=full --show-leak-kinds=all --track-origins=yes
 

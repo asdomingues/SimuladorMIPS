@@ -51,11 +51,15 @@ void EX::read_idex() {
 	rd = idex->getRD();
 }
 
-void EX::tick() {
+void EX::read_tick(){
+	read_idex();
+}
+
+void EX::write_tick() {
 	Mux m = Mux(2);
 	int select;
 
-	exmem->set_branch_address(npc + imm << 2);
+	exmem->set_branch_address(npc + (imm << 2));
 
 	m.set_entrada(0, b);
 	m.set_entrada(1, imm);
@@ -65,6 +69,10 @@ void EX::tick() {
 	alu->set_aluIN2(m.get_saida(select));
 	alu->set_aluOP(alu_op);
 	exmem->set_alu_out(alu->operation());
+	if(exmem->get_alu_out() == 0)
+		exmem->set_alu_zero(true);
+	else
+		exmem->set_alu_zero(false);
 
 	exmem->set_alu_in2(b);
 	m.set_entrada(0, rt);
@@ -73,7 +81,7 @@ void EX::tick() {
 	exmem->set_write_reg_address(m.get_saida(select));
 	
 	write_signals();
-	read_idex();
+
 }
 
 /*

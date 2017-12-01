@@ -27,7 +27,8 @@ class ID{
 		void controlSignals();
 		//numero do registrador de destino
 	public:
-		void tick();
+		void read_tick();
+		void write_tick();
 		ID(BancoDeRegistradores *banco, IFID *ifid, IDEXE *idexe);
 		void setIFID(IFID *ifid);
 		void setIDEXE(IDEXE *idexe);

@@ -28,7 +28,7 @@ void MemoriaInstrucao::write(){
 
 void MemoriaInstrucao::load_instructions(string filename){
 	ifstream entrada;
-	entrada.open(filename, ios_base::in);
+	entrada.open(filename.c_str(), ios_base::in);
     string linha;
     int pc = 0;
     while(getline(entrada, linha)){

@@ -32,7 +32,8 @@ class EX {
 		int imm, npc;
 
 	public:
-		void tick();
+		void read_tick();
+		void write_tick();
 		EX(Ula *alu, IDEXE *idex, EXMEM *exmem);
 };
 

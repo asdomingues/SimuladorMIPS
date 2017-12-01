@@ -7,7 +7,8 @@
 class Mem{
 	public:
 		Mem(EXMEM *exmem, MEMWB *memwb, string filename);
-		void tick();
+		void read_tick();
+		void write_tick();
 	private:
 		Memoria m;
 		EXMEM *exmem;
