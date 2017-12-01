@@ -28,7 +28,7 @@ class EX {
 		void write_signals();
 		void read_idex();
 		string ir;
-		int b, a;
+		int b, a, rt, rd;
 		int imm, npc;
 
 	public:
