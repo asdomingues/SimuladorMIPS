@@ -4,18 +4,18 @@ BUILD=./build/
 BIN=main
 
 COMPILER=g++
-CFLAGS=-std=c++11 -g -Wall -Wextra -Wfatal-errors -Wno-parentheses
+CFLAGS=-std=c++11 -g -Wall -Wextra -Wfatal-errors
 BOX=valgrind
 BFLAGS=--leak-check=full --show-leak-kinds=all --track-origins=yes
 
 TIME=time
-IN= < tests/0.in
+IN= < registrador.in
 OUT=
 
 COLOR=-e "\033[0;36m"
 NOCOLOR="\033[0;0m"
 
-all: clean compile
+all: clean test-compile
 
 clean:
 	@echo $(COLOR) [CLEAN] $(NOCOLOR)
@@ -35,10 +35,10 @@ test-compile:
 
 run:
 	@echo $(COLOR) [RUN] $(NOCOLOR)
-	@$(BUILD)$(PROGRAM)
+	@$(BUILD)$(BIN)
 
 test-run:
 	@echo $(COLOR) [RUN] $(NOCOLOR)
-	$(TIME) $(BOX) $(BFLAGS) $(BUILD)$(PROGRAM) $(IN) $(OUT)
+	$(TIME) $(BOX) $(BFLAGS) $(BUILD)$(BIN) $(IN) $(OUT)
 
 #.PHONY: all clean compile run
