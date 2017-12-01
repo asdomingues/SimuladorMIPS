@@ -33,3 +33,6 @@
 
 #backup
 *.swp
+
+#build
+./build
