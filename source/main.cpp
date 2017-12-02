@@ -104,37 +104,6 @@ int main(void){
 		cout << endl << endl;
     }while((++counter) < 5);
 
-
-
-	/*int numero = 0;
-	  while(numero != -1){
-
-	  printf("     ___       __________    \n");
-	  printf("    |   |     | Memoria  |   \n");
-	  printf("    |PC |     |    de    |   \n");
-	  printf("    |   |     | Instrucao|   \n");
-	  printf("    |%3d|->   |          |   \n", numero);
-	  printf("    |___|     |__________|   \n");
-	  cin >> numero;
-	  system("clear");
-	  printf("     ___       __________    \n");
-	  printf("    |   |     | Memoria  |   \n");
-	  printf("    |PC |     |    de    |   \n");
-	  printf("    |   |     | Instrucao|   \n");
-	  printf("    |%3d|-->  |          |   \n", numero);
-	  printf("    |___|     |__________|   \n");
-	  cin >> numero;
-	  system("clear");
-	  printf("     ___       __________    \n");
-	  printf("    |   |     | Memoria  |   \n");
-	  printf("    |PC |     |    de    |   \n");
-	  printf("    |   |     | Instrucao|   \n");
-	  printf("    |%3d|---> |          |   \n", numero);
-	  printf("    |___|     |__________|   \n");
-	  cin >> numero;
-	  system("clear");
-	  }*/
-
 	return 0;
 }
 
