@@ -33,7 +33,9 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
-    void print_PC();
+    void initDataMemoryT();
+    void updateDataMemoryT();
+    void print_PC(int val);
     void print_MemoriaInstrucao(string str);
     void print_IFID(int val, string str);
     ~MainWindow();
@@ -58,22 +60,6 @@ private:
     EX *exstage;
     Mem *memstage;
     WB *wbstage;
-
-    void initRegisterT();
-    void updateRegisterT();
-
-    void initIDEXT();
-    void updateIDEXT();
-
-    void initInstructionT();
-    void updateInstructionT();
-
-    void initIFID();
-    void updateIFID();
-
-    void initIDEX();
-    void updateIDEX();
-
 };
 
 #endif // MAINWINDOW_H
