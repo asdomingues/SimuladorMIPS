@@ -25,20 +25,17 @@ MainWindow::MainWindow(QWidget *parent) :
     exstage = new EX(alu, idexe, exmem);
     memstage = new Mem(exmem, memwb, "registrador.in");
     wbstage = new WB(banco, memwb);;
-    ui->register_t->insertColumn(0);
-    ui->register_t->insertColumn(1);
-    ui->register_t->setHorizontalHeaderItem(0, new QTableWidgetItem("Registrador"));
-    ui->register_t->setHorizontalHeaderItem(1, new QTableWidgetItem("Valor"));
-    wbstage = new WB(banco, memwb);;
+    this->initInstructionT();
+    this->initRegisterT();
+    this->initIFID();
+}
+void MainWindow::initInstructionT(){
     ui->instruction_t->insertColumn(0);
     ui->instruction_t->insertColumn(1);
     ui->instruction_t->setHorizontalHeaderItem(0, new QTableWidgetItem("Posição"));
     ui->instruction_t->setHorizontalHeaderItem(1, new QTableWidgetItem("Conteúdo"));
-    for(int i = 0; i < NREGISTRADORES; i++){
-        ui->register_t->insertRow(i);
-        ui->register_t->setItem(i,0, new QTableWidgetItem(QString::fromStdString(banco->get_name(i))));
-        ui->register_t->setItem(i,1, new QTableWidgetItem (QString::number(banco->read_reg1(i))));
-    }
+    ui->instruction_t->setColumnWidth(0, 60);
+    ui->instruction_t->setColumnWidth(1, 120);
     for(int i = 0; i < TAM/4; i++){
         /*TODO
             Mudar background do item sendo executado.
@@ -49,6 +46,52 @@ MainWindow::MainWindow(QWidget *parent) :
         ui->instruction_t->setItem(i,1, new QTableWidgetItem(QString::fromStdString(memoria_instrucao->read())));
         ui->instruction_t->setItem(i,0, new QTableWidgetItem (QString::number(i*4)));
     }
+    QTableWidgetItem *item = ui->instruction_t->item(0,0);
+    item->setBackground(Qt::yellow);
+    item = ui->instruction_t->item(0,1);
+    item->setBackground(Qt::yellow);
+}
+void MainWindow::updateInstructionT(){
+    int pc = ifstage->get_pc()/4;
+    QTableWidgetItem *item = ui->instruction_t->item(pc-1,0);
+    item->setBackground(Qt::white);
+    item = ui->instruction_t->item(pc-1,1);
+    item->setBackground(Qt::white);
+    item = ui->instruction_t->item(pc,0);
+    item->setBackground(Qt::yellow);
+    item = ui->instruction_t->item(pc,1);
+    item->setBackground(Qt::yellow);
+}
+void MainWindow::initRegisterT(){
+    ui->register_t->insertColumn(0);
+    ui->register_t->insertColumn(1);
+    ui->register_t->setHorizontalHeaderItem(0, new QTableWidgetItem("Registrador"));
+    ui->register_t->setHorizontalHeaderItem(1, new QTableWidgetItem("Valor"));
+    for(int i = 0; i < NREGISTRADORES; i++){
+        ui->register_t->insertRow(i);
+        ui->register_t->setItem(i,0, new QTableWidgetItem(QString::fromStdString(banco->get_name(i))));
+        ui->register_t->setItem(i,1, new QTableWidgetItem (QString::number(banco->read_reg1(i))));
+    }
+}
+void MainWindow::updateRegisterT(){
+    QTableWidgetItem *item;
+    for(int i = 0; i < NREGISTRADORES; i++){
+       item = ui->register_t->item(i,1);
+       //cout <<"i = " << item << "      " << item->text().toStdString() << endl;
+       item->setText(QString::number(banco->read_reg1(i)));
+       //ui->register_t->setItem(i,1, new QTableWidgetItem (new QString::number(banco->read_reg1(i))));
+    }
+}
+
+void MainWindow::initIFID(){
+    ui->IFID_t->insertColumn(0);
+    ui->IFID_t->insertColumn(1);
+    ui->IFID_t->setHorizontalHeaderItem(0, new QTableWidgetItem("Nome"));
+    ui->IFID_t->setHorizontalHeaderItem(1, new QTableWidgetItem("Valor"));
+    ui->IFID_t->insertRow(0);
+    ui->IFID_t->insertRow(1);
+    ui->IFID_t->setItem(0,0, new QTableWidgetItem(QStringLiteral("PC")));
+    ui->IFID_t->setItem(1,0, new QTableWidgetItem(QStringLiteral("IR")));
 }
 
 MainWindow::~MainWindow()
@@ -85,14 +128,8 @@ void MainWindow::on_pushButton_clicked()
     print_PC(ifstage->get_pc());
     print_MemoriaInstrucao(memoria_instrucao->read());
     print_IFID(ifid->getNPC(), ifid->getIR());
-    QTableWidgetItem *item;
-    for(int i = 0; i < NREGISTRADORES; i++){
-       item = ui->register_t->item(i,1);
-       //cout <<"i = " << item << "      " << item->text().toStdString() << endl;
-       item->setText(QString::number(banco->read_reg1(i)));
-       //ui->register_t->setItem(i,1, new QTableWidgetItem (new QString::number(banco->read_reg1(i))));
-    }
-
+    updateRegisterT();
+    updateInstructionT();
 //if(ifid.getIR() != "") counter = 0;
 
     /*cout << "ifid: " << ifid->getIR() << " " << ifid->getNPC() << endl;

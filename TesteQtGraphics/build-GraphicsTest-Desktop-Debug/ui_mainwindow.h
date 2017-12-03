@@ -58,6 +58,10 @@ public:
     QLabel *label_11;
     QTableWidget *register_t;
     QTableWidget *instruction_t;
+    QLabel *label_12;
+    QLabel *label_13;
+    QTableWidget *IFID_t;
+    QLabel *label_14;
     QMenuBar *menuBar;
     QMenu *menuArquivo;
     QToolBar *mainToolBar;
@@ -67,7 +71,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(1012, 651);
+        MainWindow->resize(1200, 651);
         actionReiniciar = new QAction(MainWindow);
         actionReiniciar->setObjectName(QStringLiteral("actionReiniciar"));
         centralWidget = new QWidget(MainWindow);
@@ -155,19 +159,44 @@ public:
         label_11->setGeometry(QRect(600, 10, 41, 16));
         register_t = new QTableWidget(centralWidget);
         register_t->setObjectName(QStringLiteral("register_t"));
-        register_t->setGeometry(QRect(690, 80, 242, 192));
-        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
+        register_t->setGeometry(QRect(690, 80, 211, 181));
+        QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(register_t->sizePolicy().hasHeightForWidth());
         register_t->setSizePolicy(sizePolicy);
+        register_t->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+        register_t->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        register_t->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        register_t->verticalHeader()->setVisible(false);
+        register_t->verticalHeader()->setHighlightSections(false);
         instruction_t = new QTableWidget(centralWidget);
         instruction_t->setObjectName(QStringLiteral("instruction_t"));
-        instruction_t->setGeometry(QRect(70, 350, 256, 192));
+        instruction_t->setGeometry(QRect(70, 350, 197, 192));
+        instruction_t->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        instruction_t->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        instruction_t->verticalHeader()->setVisible(false);
+        label_12 = new QLabel(centralWidget);
+        label_12->setObjectName(QStringLiteral("label_12"));
+        label_12->setGeometry(QRect(120, 320, 161, 20));
+        label_13 = new QLabel(centralWidget);
+        label_13->setObjectName(QStringLiteral("label_13"));
+        label_13->setGeometry(QRect(730, 60, 161, 20));
+        IFID_t = new QTableWidget(centralWidget);
+        IFID_t->setObjectName(QStringLiteral("IFID_t"));
+        IFID_t->setGeometry(QRect(500, 340, 221, 91));
+        sizePolicy.setHeightForWidth(IFID_t->sizePolicy().hasHeightForWidth());
+        IFID_t->setSizePolicy(sizePolicy);
+        IFID_t->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        IFID_t->verticalHeader()->setVisible(false);
+        IFID_t->verticalHeader()->setHighlightSections(false);
+        label_14 = new QLabel(centralWidget);
+        label_14->setObjectName(QStringLiteral("label_14"));
+        label_14->setGeometry(QRect(600, 310, 63, 20));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 1012, 28));
+        menuBar->setGeometry(QRect(0, 0, 1200, 28));
         menuArquivo = new QMenu(menuBar);
         menuArquivo->setObjectName(QStringLiteral("menuArquivo"));
         MainWindow->setMenuBar(menuBar);
@@ -202,6 +231,9 @@ public:
         label_9->setText(QApplication::translate("MainWindow", "RdData1", Q_NULLPTR));
         label_10->setText(QApplication::translate("MainWindow", "RdData2", Q_NULLPTR));
         label_11->setText(QApplication::translate("MainWindow", "ID/EX", Q_NULLPTR));
+        label_12->setText(QApplication::translate("MainWindow", "Mem\303\263ria de Instru\303\247\303\265es", Q_NULLPTR));
+        label_13->setText(QApplication::translate("MainWindow", "Banco de Registradores", Q_NULLPTR));
+        label_14->setText(QApplication::translate("MainWindow", "IF/ID", Q_NULLPTR));
         menuArquivo->setTitle(QApplication::translate("MainWindow", "Ar&quivo", Q_NULLPTR));
     } // retranslateUi
 

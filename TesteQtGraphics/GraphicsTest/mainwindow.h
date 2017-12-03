@@ -58,6 +58,14 @@ private:
     EX *exstage;
     Mem *memstage;
     WB *wbstage;
+
+    void initRegisterT();
+    void updateRegisterT();
+
+    void initInstructionT();
+    void updateInstructionT();
+
+    void initIFID();
 };
 
 #endif // MAINWINDOW_H
