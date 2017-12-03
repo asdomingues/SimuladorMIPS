@@ -65,6 +65,9 @@ private:
     void initIDEXT();
     void updateIDEXT();
 
+    void initEXMEMT();
+    void updateEXMEMT();
+
     void initInstructionT();
     void updateInstructionT();
 
@@ -74,6 +77,8 @@ private:
     void initIDEX();
     void updateIDEX();
 
+    void initEXMEM();
+    void updateEXMEM();
 };
 
 #endif // MAINWINDOW_H

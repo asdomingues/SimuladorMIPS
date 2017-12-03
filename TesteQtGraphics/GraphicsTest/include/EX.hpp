@@ -33,7 +33,7 @@ class EX {
 
 	public:
 		void read_tick();
-		void write_tick();
+        void write_tick();
 		EX(Ula *alu, IDEXE *idex, EXMEM *exmem);
 };
 
