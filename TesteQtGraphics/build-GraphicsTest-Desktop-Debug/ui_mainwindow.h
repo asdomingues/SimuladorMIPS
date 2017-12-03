@@ -57,6 +57,7 @@ public:
     QLabel *label_10;
     QLabel *label_11;
     QTableWidget *register_t;
+    QTableWidget *instruction_t;
     QMenuBar *menuBar;
     QMenu *menuArquivo;
     QToolBar *mainToolBar;
@@ -154,11 +155,15 @@ public:
         label_11->setGeometry(QRect(600, 10, 41, 16));
         register_t = new QTableWidget(centralWidget);
         register_t->setObjectName(QStringLiteral("register_t"));
-        register_t->setGeometry(QRect(690, 80, 240, 192));
-        register_t->insertColumn(0);
-        register_t->insertColumn(1);
-        register_t->setHorizontalHeaderItem(0, new QTableWidgetItem("Registrador"));
-        register_t->setHorizontalHeaderItem(1, new QTableWidgetItem("Valor"));
+        register_t->setGeometry(QRect(690, 80, 242, 192));
+        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(register_t->sizePolicy().hasHeightForWidth());
+        register_t->setSizePolicy(sizePolicy);
+        instruction_t = new QTableWidget(centralWidget);
+        instruction_t->setObjectName(QStringLiteral("instruction_t"));
+        instruction_t->setGeometry(QRect(70, 350, 256, 192));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));

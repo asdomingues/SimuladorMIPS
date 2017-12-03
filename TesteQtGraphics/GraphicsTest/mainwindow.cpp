@@ -25,11 +25,29 @@ MainWindow::MainWindow(QWidget *parent) :
     exstage = new EX(alu, idexe, exmem);
     memstage = new Mem(exmem, memwb, "registrador.in");
     wbstage = new WB(banco, memwb);;
-
+    ui->register_t->insertColumn(0);
+    ui->register_t->insertColumn(1);
+    ui->register_t->setHorizontalHeaderItem(0, new QTableWidgetItem("Registrador"));
+    ui->register_t->setHorizontalHeaderItem(1, new QTableWidgetItem("Valor"));
+    wbstage = new WB(banco, memwb);;
+    ui->instruction_t->insertColumn(0);
+    ui->instruction_t->insertColumn(1);
+    ui->instruction_t->setHorizontalHeaderItem(0, new QTableWidgetItem("Posição"));
+    ui->instruction_t->setHorizontalHeaderItem(1, new QTableWidgetItem("Conteúdo"));
     for(int i = 0; i < NREGISTRADORES; i++){
         ui->register_t->insertRow(i);
         ui->register_t->setItem(i,0, new QTableWidgetItem(QString::fromStdString(banco->get_name(i))));
         ui->register_t->setItem(i,1, new QTableWidgetItem (QString::number(banco->read_reg1(i))));
+    }
+    for(int i = 0; i < TAM/4; i++){
+        /*TODO
+            Mudar background do item sendo executado.
+            Scroll to item.
+        */
+        ui->instruction_t->insertRow(i);
+        memoria_instrucao->set_address(i*4);
+        ui->instruction_t->setItem(i,1, new QTableWidgetItem(QString::fromStdString(memoria_instrucao->read())));
+        ui->instruction_t->setItem(i,0, new QTableWidgetItem (QString::number(i*4)));
     }
 }
 

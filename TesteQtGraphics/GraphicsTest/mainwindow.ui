@@ -303,6 +303,22 @@
      <rect>
       <x>690</x>
       <y>80</y>
+      <width>242</width>
+      <height>192</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="instruction_t">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>350</y>
       <width>256</width>
       <height>192</height>
      </rect>
