@@ -33,7 +33,7 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
-    void print_PC(int val);
+    void print_PC();
     void print_MemoriaInstrucao(string str);
     void print_IFID(int val, string str);
     ~MainWindow();
@@ -66,6 +66,9 @@ private:
     void updateInstructionT();
 
     void initIFID();
+    void updateIFID();
+
+
 };
 
 #endif // MAINWINDOW_H

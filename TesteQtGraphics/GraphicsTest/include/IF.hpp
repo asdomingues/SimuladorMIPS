@@ -25,6 +25,7 @@ class IF{
 		IF(MemoriaInstrucao *memoria, IFID *ifid, EXMEM *exmem);
 		int get_pc();
 		void read_exmem();
+        int get_mux_origin();
 		bool get_pcSrc();
 };
 

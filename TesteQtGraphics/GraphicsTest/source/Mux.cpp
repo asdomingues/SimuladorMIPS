@@ -18,12 +18,16 @@ void Mux::set_entrada(int entrada, int valor){
 		return;
 	this->entradas[entrada] = valor;
 }
+int Mux::get_seletor(){
+    return this->seletor;
+}
 
 // TODO tratar erro entrada > tamanho do mux
 int Mux::get_saida(int entrada){
 	if(entrada > this->tamanho){
 
 	}
+    this->seletor=entrada;
 	return this->entradas[entrada];
 }
 /*

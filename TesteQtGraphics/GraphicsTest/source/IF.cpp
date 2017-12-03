@@ -11,7 +11,9 @@
 		pc.set_valor(0);
 		pc.set_nome("pc");
 	}
-
+    int IF::get_mux_origin(){
+        return this->mux.get_seletor();
+    }
 	void IF::read_exmem(){
 		//pegue do exmem
 		//and branch e o zero
