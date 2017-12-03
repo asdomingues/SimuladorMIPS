@@ -32,7 +32,10 @@ class ID{
 		ID(BancoDeRegistradores *banco, IFID *ifid, IDEXE *idexe);
 		void setIFID(IFID *ifid);
 		void setIDEXE(IDEXE *idexe);
+		int get_reg1();
+		int get_reg2();
 		int npc;
+		int ge
 		string ir;
 
 

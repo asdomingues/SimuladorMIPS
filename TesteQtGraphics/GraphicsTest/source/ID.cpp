@@ -224,6 +224,14 @@ void ID::setIDEXE(IDEXE *idexe){
 	this->idexe=idexe;
 }
 
+int ID::get_reg1(){
+	return rs;
+}
+
+int ID::get_reg2(){
+	return rt;
+}
+
 /*
 int main(){
 	string test = "lw $r1, 100($r2)";
