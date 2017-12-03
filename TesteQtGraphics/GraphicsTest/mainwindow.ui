@@ -53,8 +53,8 @@
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>330</x>
-      <y>250</y>
+      <x>300</x>
+      <y>270</y>
       <width>31</width>
       <height>16</height>
      </rect>
@@ -76,42 +76,6 @@
      <string>Próximo Ciclo</string>
     </property>
    </widget>
-   <widget class="QTextBrowser" name="BancoReg">
-    <property name="geometry">
-     <rect>
-      <x>400</x>
-      <y>130</y>
-      <width>131</width>
-      <height>121</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="Line" name="line_3">
-    <property name="geometry">
-     <rect>
-      <x>330</x>
-      <y>140</y>
-      <width>71</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_5">
-    <property name="geometry">
-     <rect>
-      <x>380</x>
-      <y>90</y>
-      <width>161</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Banco de Registradores</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
@@ -123,107 +87,6 @@
     </property>
     <property name="text">
      <string>Estágio ID</string>
-    </property>
-   </widget>
-   <widget class="Line" name="line_4">
-    <property name="geometry">
-     <rect>
-      <x>330</x>
-      <y>170</y>
-      <width>71</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_7">
-    <property name="geometry">
-     <rect>
-      <x>350</x>
-      <y>130</y>
-      <width>51</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>RdReg1</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_8">
-    <property name="geometry">
-     <rect>
-      <x>350</x>
-      <y>160</y>
-      <width>51</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>RdReg2</string>
-    </property>
-   </widget>
-   <widget class="QTextBrowser" name="IDEX">
-    <property name="geometry">
-     <rect>
-      <x>580</x>
-      <y>30</y>
-      <width>71</width>
-      <height>261</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="Line" name="line_5">
-    <property name="geometry">
-     <rect>
-      <x>530</x>
-      <y>150</y>
-      <width>51</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
-   <widget class="Line" name="line_6">
-    <property name="geometry">
-     <rect>
-      <x>530</x>
-      <y>200</y>
-      <width>51</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_9">
-    <property name="geometry">
-     <rect>
-      <x>520</x>
-      <y>140</y>
-      <width>61</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>RdData1</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_10">
-    <property name="geometry">
-     <rect>
-      <x>520</x>
-      <y>190</y>
-      <width>61</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>RdData2</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_11">
@@ -242,8 +105,8 @@
    <widget class="QTableWidget" name="register_t">
     <property name="geometry">
      <rect>
-      <x>690</x>
-      <y>80</y>
+      <x>540</x>
+      <y>260</y>
       <width>211</width>
       <height>181</height>
      </rect>
@@ -305,27 +168,14 @@
    <widget class="QLabel" name="label_13">
     <property name="geometry">
      <rect>
-      <x>730</x>
-      <y>60</y>
+      <x>570</x>
+      <y>220</y>
       <width>161</width>
       <height>20</height>
      </rect>
     </property>
     <property name="text">
      <string>Banco de Registradores</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_14">
-    <property name="geometry">
-     <rect>
-      <x>600</x>
-      <y>310</y>
-      <width>63</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>IF/ID</string>
     </property>
    </widget>
    <widget class="QTableWidget" name="IDEX_t">
@@ -440,6 +290,52 @@
     </property>
     <property name="text">
      <string>PC</string>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="rReg1">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>280</y>
+      <width>71</width>
+      <height>41</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="Line" name="line_3">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>320</y>
+      <width>91</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_4">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>410</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="textBrowser">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>370</y>
+      <width>71</width>
+      <height>41</height>
+     </rect>
     </property>
    </widget>
   </widget>
