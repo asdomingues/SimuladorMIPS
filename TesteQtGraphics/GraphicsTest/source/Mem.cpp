@@ -46,6 +46,7 @@ void Mem::write_tick(){
 		m.set_wdata(this->write_data);
 		m.write();
 	}
-
 	
 }
+
+Memoria Mem::get_memoria(){  return m; }
