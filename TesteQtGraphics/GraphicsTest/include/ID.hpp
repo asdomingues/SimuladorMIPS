@@ -35,7 +35,6 @@ class ID{
 		int get_reg1();
 		int get_reg2();
 		int npc;
-		int ge
 		string ir;
 
 

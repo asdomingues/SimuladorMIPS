@@ -27,7 +27,7 @@ MainWindow::MainWindow(QWidget *parent) :
     this->initInstructionT();
     this->initRegisterT();
     this->initIFID();
-    this->initIDEXT();
+    this->initIDEX();
 }
 void MainWindow::initInstructionT(){
     ui->instruction_t->insertColumn(0);
@@ -96,6 +96,21 @@ void MainWindow::updateIFID(){
     ui->IFIDIR->setText(QString::fromStdString(ifid->getIR()));
     ui->IFIDPC->setText(QString::number(ifid->getNPC()));
     ui->muxPC->setText(ifstage->get_mux_origin() == 0 ? QStringLiteral("PC + 4") : QStringLiteral("Branch"));
+}
+
+void MainWindow::initIDEX(){
+    initIDEXT();
+    ui->rReg1->setText(QString::number(idstage->get_reg1()));
+    ui->rReg2->setText(QString::number(idstage->get_reg2()));
+    ui->wRegA->setText(QString::number(idexe->getA()));
+    ui->wRegB->setText(QString::number(idexe->getB()));
+}
+void MainWindow::updateIDEX(){
+    updateIDEXT();
+    ui->rReg1->setText(QString::number(idstage->get_reg1()));
+    ui->rReg2->setText(QString::number(idstage->get_reg2()));
+    ui->wRegA->setText(QString::number(idexe->getA()));
+    ui->wRegB->setText(QString::number(idexe->getB()));
 }
 void MainWindow::initIDEXT(){
     ui->IDEX_t->insertColumn(0);
@@ -196,6 +211,6 @@ void MainWindow::on_pushButton_clicked()
 
     updateIFID();
     updateRegisterT();
-    updateIDEXT();
+    updateIDEX();
 
 }
