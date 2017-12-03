@@ -138,6 +138,8 @@ void MainWindow::initIDEXT(){
     ui->IDEX_t->setItem(9,1, new QTableWidgetItem(QString::number(idexe->getMemWrite())));
     ui->IDEX_t->setItem(10,1, new QTableWidgetItem(QString::number(idexe->getMemToReg())));
     ui->IDEX_t->setItem(11,1, new QTableWidgetItem(QString::fromStdString(idexe->getAluOP())));
+    ui->IDEX_t->setColumnWidth(0, 85);
+    ui->IDEX_t->setColumnWidth(1, 53);
     updateIDEXT();
 }
 void MainWindow::updateIDEXT(){

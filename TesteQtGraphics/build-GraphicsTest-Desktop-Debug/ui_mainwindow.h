@@ -173,7 +173,7 @@ public:
         label_14->setGeometry(QRect(600, 310, 63, 20));
         IDEX_t = new QTableWidget(centralWidget);
         IDEX_t->setObjectName(QStringLiteral("IDEX_t"));
-        IDEX_t->setGeometry(QRect(810, 290, 256, 192));
+        IDEX_t->setGeometry(QRect(810, 290, 156, 192));
         IDEX_t->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         IDEX_t->verticalHeader()->setVisible(false);
         IDEX_t->verticalHeader()->setHighlightSections(false);
