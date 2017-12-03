@@ -35,7 +35,6 @@ public:
     QWidget *centralWidget;
     QLabel *label;
     QTextBrowser *reg;
-    QTextBrowser *IFID;
     QFrame *line_2;
     QLabel *label_4;
     QPushButton *pushButton;
@@ -56,13 +55,16 @@ public:
     QTableWidget *instruction_t;
     QLabel *label_12;
     QLabel *label_13;
-    QTableWidget *IFID_t;
     QLabel *label_14;
     QTableWidget *IDEX_t;
     QFrame *line_7;
     QTextBrowser *muxPC;
     QLabel *label_2;
     QFrame *line;
+    QTextBrowser *IFIDIR;
+    QLabel *label_3;
+    QTextBrowser *IFIDPC;
+    QLabel *label_15;
     QMenuBar *menuBar;
     QMenu *menuArquivo;
     QToolBar *mainToolBar;
@@ -83,17 +85,14 @@ public:
         reg = new QTextBrowser(centralWidget);
         reg->setObjectName(QStringLiteral("reg"));
         reg->setGeometry(QRect(50, 170, 41, 41));
-        IFID = new QTextBrowser(centralWidget);
-        IFID->setObjectName(QStringLiteral("IFID"));
-        IFID->setGeometry(QRect(260, 30, 71, 261));
         line_2 = new QFrame(centralWidget);
         line_2->setObjectName(QStringLiteral("line_2"));
-        line_2->setGeometry(QRect(300, 360, 51, 16));
+        line_2->setGeometry(QRect(250, 370, 51, 16));
         line_2->setFrameShape(QFrame::HLine);
         line_2->setFrameShadow(QFrame::Sunken);
         label_4 = new QLabel(centralWidget);
         label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setGeometry(QRect(280, 10, 31, 16));
+        label_4->setGeometry(QRect(330, 250, 31, 16));
         pushButton = new QPushButton(centralWidget);
         pushButton->setObjectName(QStringLiteral("pushButton"));
         pushButton->setGeometry(QRect(80, 550, 101, 31));
@@ -159,7 +158,7 @@ public:
         register_t->verticalHeader()->setHighlightSections(false);
         instruction_t = new QTableWidget(centralWidget);
         instruction_t->setObjectName(QStringLiteral("instruction_t"));
-        instruction_t->setGeometry(QRect(60, 270, 191, 192));
+        instruction_t->setGeometry(QRect(60, 270, 198, 192));
         instruction_t->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         instruction_t->setEditTriggers(QAbstractItemView::NoEditTriggers);
         instruction_t->verticalHeader()->setVisible(false);
@@ -169,14 +168,6 @@ public:
         label_13 = new QLabel(centralWidget);
         label_13->setObjectName(QStringLiteral("label_13"));
         label_13->setGeometry(QRect(730, 60, 161, 20));
-        IFID_t = new QTableWidget(centralWidget);
-        IFID_t->setObjectName(QStringLiteral("IFID_t"));
-        IFID_t->setGeometry(QRect(500, 340, 221, 91));
-        sizePolicy.setHeightForWidth(IFID_t->sizePolicy().hasHeightForWidth());
-        IFID_t->setSizePolicy(sizePolicy);
-        IFID_t->setEditTriggers(QAbstractItemView::NoEditTriggers);
-        IFID_t->verticalHeader()->setVisible(false);
-        IFID_t->verticalHeader()->setHighlightSections(false);
         label_14 = new QLabel(centralWidget);
         label_14->setObjectName(QStringLiteral("label_14"));
         label_14->setGeometry(QRect(600, 310, 63, 20));
@@ -202,6 +193,18 @@ public:
         line->setGeometry(QRect(70, 110, 3, 61));
         line->setFrameShape(QFrame::VLine);
         line->setFrameShadow(QFrame::Sunken);
+        IFIDIR = new QTextBrowser(centralWidget);
+        IFIDIR->setObjectName(QStringLiteral("IFIDIR"));
+        IFIDIR->setGeometry(QRect(300, 350, 120, 41));
+        label_3 = new QLabel(centralWidget);
+        label_3->setObjectName(QStringLiteral("label_3"));
+        label_3->setGeometry(QRect(270, 350, 63, 20));
+        IFIDPC = new QTextBrowser(centralWidget);
+        IFIDPC->setObjectName(QStringLiteral("IFIDPC"));
+        IFIDPC->setGeometry(QRect(300, 300, 41, 41));
+        label_15 = new QLabel(centralWidget);
+        label_15->setObjectName(QStringLiteral("label_15"));
+        label_15->setGeometry(QRect(270, 310, 63, 20));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -242,6 +245,8 @@ public:
         label_13->setText(QApplication::translate("MainWindow", "Banco de Registradores", Q_NULLPTR));
         label_14->setText(QApplication::translate("MainWindow", "IF/ID", Q_NULLPTR));
         label_2->setText(QApplication::translate("MainWindow", "Origem PC", Q_NULLPTR));
+        label_3->setText(QApplication::translate("MainWindow", "IR", Q_NULLPTR));
+        label_15->setText(QApplication::translate("MainWindow", "PC", Q_NULLPTR));
         menuArquivo->setTitle(QApplication::translate("MainWindow", "Ar&quivo", Q_NULLPTR));
     } // retranslateUi
 

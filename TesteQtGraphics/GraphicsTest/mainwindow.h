@@ -62,12 +62,17 @@ private:
     void initRegisterT();
     void updateRegisterT();
 
+    void initIDEXT();
+    void updateIDEXT();
+
     void initInstructionT();
     void updateInstructionT();
 
     void initIFID();
     void updateIFID();
 
+    void initIDEX();
+    void updateIDEX();
 
 };
 

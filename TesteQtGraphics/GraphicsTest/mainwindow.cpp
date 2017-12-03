@@ -7,7 +7,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     setWindowTitle("Simulador MIPS");
     ui->reg->setText("0");
-    ui->IFID->setText("\nNPC\n0\n\nIR\n0");
+
 
     memoria_instrucao = new MemoriaInstrucao();
     memoria_instrucao->load_instructions("instrucoes.in");
@@ -27,6 +27,7 @@ MainWindow::MainWindow(QWidget *parent) :
     this->initInstructionT();
     this->initRegisterT();
     this->initIFID();
+    this->initIDEXT();
 }
 void MainWindow::initInstructionT(){
     ui->instruction_t->insertColumn(0);
@@ -84,21 +85,87 @@ void MainWindow::updateRegisterT(){
 }
 
 void MainWindow::initIFID(){
-    ui->IFID_t->insertColumn(0);
-    ui->IFID_t->insertColumn(1);
-    ui->IFID_t->setHorizontalHeaderItem(0, new QTableWidgetItem("Nome"));
-    ui->IFID_t->setHorizontalHeaderItem(1, new QTableWidgetItem("Valor"));
-    ui->IFID_t->insertRow(0);
-    ui->IFID_t->insertRow(1);
-    ui->IFID_t->setItem(0,0, new QTableWidgetItem(QStringLiteral("PC")));
-    ui->IFID_t->setItem(1,0, new QTableWidgetItem(QStringLiteral("IR")));
+    ui->IFIDIR->setText(QString::fromStdString(ifid->getIR()));
+    ui->IFIDPC->setText(QString::number(ifid->getNPC()));
     ui->muxPC->setText(ifstage->get_mux_origin() == 0 ? QStringLiteral("PC + 4") : QStringLiteral("Branch"));
 
 }
 void MainWindow::updateIFID(){
     updateInstructionT();
     print_PC();
+    ui->IFIDIR->setText(QString::fromStdString(ifid->getIR()));
+    ui->IFIDPC->setText(QString::number(ifid->getNPC()));
     ui->muxPC->setText(ifstage->get_mux_origin() == 0 ? QStringLiteral("PC + 4") : QStringLiteral("Branch"));
+}
+void MainWindow::initIDEXT(){
+    ui->IDEX_t->insertColumn(0);
+    ui->IDEX_t->insertColumn(1);
+    ui->IDEX_t->setHorizontalHeaderItem(0, new QTableWidgetItem("Nome"));
+    ui->IDEX_t->setHorizontalHeaderItem(1, new QTableWidgetItem("Valor"));
+    ui->IDEX_t->insertRow(0);
+    ui->IDEX_t->insertRow(1);
+    ui->IDEX_t->insertRow(2);
+    ui->IDEX_t->insertRow(3);
+    ui->IDEX_t->insertRow(4);
+    ui->IDEX_t->insertRow(5);
+    ui->IDEX_t->insertRow(6);
+    ui->IDEX_t->insertRow(7);
+    ui->IDEX_t->insertRow(8);
+    ui->IDEX_t->insertRow(9);
+    ui->IDEX_t->insertRow(10);
+    ui->IDEX_t->insertRow(11);
+    ui->IDEX_t->setItem(0,0, new QTableWidgetItem(QStringLiteral("RT")));
+    ui->IDEX_t->setItem(1,0, new QTableWidgetItem(QStringLiteral("RD")));
+    ui->IDEX_t->setItem(2,0, new QTableWidgetItem(QStringLiteral("RA")));
+    ui->IDEX_t->setItem(3,0, new QTableWidgetItem(QStringLiteral("RB")));
+    ui->IDEX_t->setItem(4,0, new QTableWidgetItem(QStringLiteral("regDest")));
+    ui->IDEX_t->setItem(5,0, new QTableWidgetItem(QStringLiteral("regWrite")));
+    ui->IDEX_t->setItem(6,0, new QTableWidgetItem(QStringLiteral("aluSrc")));
+    ui->IDEX_t->setItem(7,0, new QTableWidgetItem(QStringLiteral("branch")));
+    ui->IDEX_t->setItem(8,0, new QTableWidgetItem(QStringLiteral("memRead")));
+    ui->IDEX_t->setItem(9,0, new QTableWidgetItem(QStringLiteral("memWrite")));
+    ui->IDEX_t->setItem(10,0, new QTableWidgetItem(QStringLiteral("writeToReg")));
+    ui->IDEX_t->setItem(11,0, new QTableWidgetItem(QStringLiteral("aluOP")));
+    ui->IDEX_t->setItem(0,1, new QTableWidgetItem(QString::number(idexe->getRT())));
+    ui->IDEX_t->setItem(1,1, new QTableWidgetItem(QString::number(idexe->getRD())));
+    ui->IDEX_t->setItem(2,1, new QTableWidgetItem(QString::number(idexe->getA())));
+    ui->IDEX_t->setItem(3,1, new QTableWidgetItem(QString::number(idexe->getB())));
+    ui->IDEX_t->setItem(4,1, new QTableWidgetItem(QString::number(idexe->getRegDest())));
+    ui->IDEX_t->setItem(5,1, new QTableWidgetItem(QString::number(idexe->getRegWrite())));
+    ui->IDEX_t->setItem(6,1, new QTableWidgetItem(QString::number(idexe->getAluSrc()))); //adicionar semantica
+    ui->IDEX_t->setItem(7,1, new QTableWidgetItem(QString::number(idexe->getBranch())));
+    ui->IDEX_t->setItem(8,1, new QTableWidgetItem(QString::number(idexe->getMemRead())));
+    ui->IDEX_t->setItem(9,1, new QTableWidgetItem(QString::number(idexe->getMemWrite())));
+    ui->IDEX_t->setItem(10,1, new QTableWidgetItem(QString::number(idexe->getMemToReg())));
+    ui->IDEX_t->setItem(11,1, new QTableWidgetItem(QString::fromStdString(idexe->getAluOP())));
+    updateIDEXT();
+}
+void MainWindow::updateIDEXT(){
+    QTableWidgetItem *item;
+    item = ui->IDEX_t->item(0,1);
+    item->setText(QString::number(idexe->getRT()));
+    item = ui->IDEX_t->item(1,1);
+    item->setText(QString::number(idexe->getRD()));
+    item = ui->IDEX_t->item(2,1);
+    item->setText(QString::number(idexe->getA()));
+    item = ui->IDEX_t->item(3,1);
+    item->setText(QString::number(idexe->getB()));
+    item = ui->IDEX_t->item(4,1);
+    item->setText(QString::number(idexe->getRegDest()));
+    item = ui->IDEX_t->item(5,1);
+    item->setText(QString::number(idexe->getRegWrite()));
+    item = ui->IDEX_t->item(6,1);
+    item->setText(QString::number(idexe->getAluSrc()));
+    item = ui->IDEX_t->item(7,1);
+    item->setText(QString::number(idexe->getBranch()));
+    item = ui->IDEX_t->item(8,1);
+    item->setText(QString::number(idexe->getMemRead()));
+    item = ui->IDEX_t->item(9,1);
+    item->setText(QString::number(idexe->getMemWrite()));
+    item = ui->IDEX_t->item(10,1);
+    item->setText(QString::number(idexe->getMemToReg()));
+    item = ui->IDEX_t->item(11,1);
+    item->setText(QString::fromStdString(idexe->getAluOP()));
 }
 MainWindow::~MainWindow()
 {
@@ -109,9 +176,7 @@ void MainWindow::print_PC(){
     ui->reg->setText(QString::number(ifstage->get_pc()));
 }
 
-void MainWindow::print_IFID(int val, string str){
-    ui->IFID->setText("\nNPC\n" + QString::number(val) + "\n\nIR\n" + QString::fromStdString(str));
-}
+
 
 void MainWindow::on_pushButton_clicked()
 {
@@ -127,9 +192,8 @@ void MainWindow::on_pushButton_clicked()
     memstage->read_tick();
     wbstage->read_tick();
 
-
-    print_IFID(ifid->getNPC(), ifid->getIR());
     updateIFID();
     updateRegisterT();
+    updateIDEXT();
 
 }
