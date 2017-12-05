@@ -99,6 +99,7 @@ public:
     QTextBrowser *muxMemToReg;
     QLabel *label_28;
     QPushButton *resetButton;
+    QLabel *label_29;
     QMenuBar *menuBar;
     QMenu *menuArquivo;
     QToolBar *mainToolBar;
@@ -299,7 +300,7 @@ public:
         line_6->setFrameShadow(QFrame::Sunken);
         line_2 = new QFrame(centralWidget);
         line_2->setObjectName(QStringLiteral("line_2"));
-        line_2->setGeometry(QRect(220, 30, 20, 111));
+        line_2->setGeometry(QRect(220, 60, 20, 81));
         line_2->setFrameShape(QFrame::VLine);
         line_2->setFrameShadow(QFrame::Sunken);
         line_8 = new QFrame(centralWidget);
@@ -309,7 +310,7 @@ public:
         line_8->setFrameShadow(QFrame::Sunken);
         line_9 = new QFrame(centralWidget);
         line_9->setObjectName(QStringLiteral("line_9"));
-        line_9->setGeometry(QRect(540, 20, 20, 111));
+        line_9->setGeometry(QRect(540, 50, 20, 81));
         line_9->setFrameShape(QFrame::VLine);
         line_9->setFrameShadow(QFrame::Sunken);
         line_10 = new QFrame(centralWidget);
@@ -325,12 +326,12 @@ public:
         label_23->setGeometry(QRect(670, 330, 63, 20));
         line_11 = new QFrame(centralWidget);
         line_11->setObjectName(QStringLiteral("line_11"));
-        line_11->setGeometry(QRect(800, 20, 20, 111));
+        line_11->setGeometry(QRect(800, 50, 20, 81));
         line_11->setFrameShape(QFrame::VLine);
         line_11->setFrameShadow(QFrame::Sunken);
         line_12 = new QFrame(centralWidget);
         line_12->setObjectName(QStringLiteral("line_12"));
-        line_12->setGeometry(QRect(1130, 20, 20, 111));
+        line_12->setGeometry(QRect(1130, 50, 20, 81));
         line_12->setFrameShape(QFrame::VLine);
         line_12->setFrameShadow(QFrame::Sunken);
         line_13 = new QFrame(centralWidget);
@@ -376,6 +377,14 @@ public:
         resetButton = new QPushButton(centralWidget);
         resetButton->setObjectName(QStringLiteral("resetButton"));
         resetButton->setGeometry(QRect(270, 550, 101, 31));
+        label_29 = new QLabel(centralWidget);
+        label_29->setObjectName(QStringLiteral("label_29"));
+        label_29->setGeometry(QRect(510, 10, 361, 16));
+        QFont font1;
+        font1.setPointSize(16);
+        font1.setBold(true);
+        font1.setWeight(75);
+        label_29->setFont(font1);
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -432,6 +441,7 @@ public:
         label_27->setText(QApplication::translate("MainWindow", "Mux: aluSrc", nullptr));
         label_28->setText(QApplication::translate("MainWindow", "Mux: memToReg", nullptr));
         resetButton->setText(QApplication::translate("MainWindow", "Resetar", nullptr));
+        label_29->setText(QApplication::translate("MainWindow", "Simulador MIPS", nullptr));
         menuArquivo->setTitle(QApplication::translate("MainWindow", "Ar&quivo", nullptr));
     } // retranslateUi
 
