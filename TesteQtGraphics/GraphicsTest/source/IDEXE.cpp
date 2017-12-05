@@ -16,6 +16,7 @@
 			memToReg=false;
 			ra=0;
 			rb=0;
+            imm=0;
 			aluOP="";
 		}
 

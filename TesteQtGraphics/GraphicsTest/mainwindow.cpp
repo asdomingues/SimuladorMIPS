@@ -37,9 +37,9 @@ MainWindow::MainWindow(QWidget *parent) :
 void MainWindow::initInstructionT(){
     ui->instruction_t->insertColumn(0);
     ui->instruction_t->insertColumn(1);
-    ui->instruction_t->setHorizontalHeaderItem(0, new QTableWidgetItem("Posição"));
+    ui->instruction_t->setHorizontalHeaderItem(0, new QTableWidgetItem("Pos"));
     ui->instruction_t->setHorizontalHeaderItem(1, new QTableWidgetItem("Conteúdo"));
-    ui->instruction_t->setColumnWidth(0, 60);
+    ui->instruction_t->setColumnWidth(0, 45);
     ui->instruction_t->setColumnWidth(1, 120);
     for(int i = 0; i < TAM/4; i++){
         /*TODO
@@ -61,10 +61,10 @@ void MainWindow::initInstructionT(){
 void MainWindow::initDataMemoryT(){
     ui->datamemory_t->insertColumn(0);
     ui->datamemory_t->insertColumn(1);
-    ui->datamemory_t->setHorizontalHeaderItem(0, new QTableWidgetItem("Posição"));
+    ui->datamemory_t->setHorizontalHeaderItem(0, new QTableWidgetItem("Pos"));
     ui->datamemory_t->setHorizontalHeaderItem(1, new QTableWidgetItem("Valor"));
-    ui->datamemory_t->setColumnWidth(0, 60);
-    ui->datamemory_t->setColumnWidth(1, 120);
+    ui->datamemory_t->setColumnWidth(0, 45);
+    ui->datamemory_t->setColumnWidth(1, 50);
     for(int i = 0; i < TAM/4; i++){
         ui->datamemory_t->insertRow(i);
         ui->datamemory_t->setItem(i,1, new QTableWidgetItem(QString::fromStdString(to_string(memstage->get_memory_data(i*4)))));
@@ -99,7 +99,7 @@ void MainWindow::initRegisterT(){
     ui->register_t->setHorizontalHeaderItem(0, new QTableWidgetItem("Reg"));
     ui->register_t->setHorizontalHeaderItem(1, new QTableWidgetItem("Valor"));
     ui->register_t->setColumnWidth(0, 40);
-    ui->register_t->setColumnWidth(1, 49);
+    ui->register_t->setColumnWidth(1, 55);
     for(int i = 0; i < NREGISTRADORES; i++){
         ui->register_t->insertRow(i);
         ui->register_t->setItem(i,0, new QTableWidgetItem(QString::fromStdString(banco->get_name(i))));
@@ -155,6 +155,8 @@ void MainWindow::initIDEXT(){
     ui->IDEX_t->insertColumn(1);
     ui->IDEX_t->setHorizontalHeaderItem(0, new QTableWidgetItem("Nome"));
     ui->IDEX_t->setHorizontalHeaderItem(1, new QTableWidgetItem("Valor"));
+    ui->IDEX_t->setColumnWidth(0, 90);
+    ui->IDEX_t->setColumnWidth(1, 50);
     ui->IDEX_t->insertRow(0);
     ui->IDEX_t->insertRow(1);
     ui->IDEX_t->insertRow(2);
@@ -168,32 +170,36 @@ void MainWindow::initIDEXT(){
     ui->IDEX_t->insertRow(10);
     ui->IDEX_t->insertRow(11);
     ui->IDEX_t->insertRow(12);
-    ui->IDEX_t->setItem(0,0, new QTableWidgetItem(QStringLiteral("RT")));
-    ui->IDEX_t->setItem(1,0, new QTableWidgetItem(QStringLiteral("RD")));
-    ui->IDEX_t->setItem(2,0, new QTableWidgetItem(QStringLiteral("RA")));
-    ui->IDEX_t->setItem(3,0, new QTableWidgetItem(QStringLiteral("RB")));
-    ui->IDEX_t->setItem(4,0, new QTableWidgetItem(QStringLiteral("regDest")));
-    ui->IDEX_t->setItem(5,0, new QTableWidgetItem(QStringLiteral("regWrite")));
-    ui->IDEX_t->setItem(6,0, new QTableWidgetItem(QStringLiteral("aluSrc")));
-    ui->IDEX_t->setItem(7,0, new QTableWidgetItem(QStringLiteral("branch")));
-    ui->IDEX_t->setItem(8,0, new QTableWidgetItem(QStringLiteral("memRead")));
-    ui->IDEX_t->setItem(9,0, new QTableWidgetItem(QStringLiteral("memWrite")));
-    ui->IDEX_t->setItem(10,0, new QTableWidgetItem(QStringLiteral("writeToReg")));
-    ui->IDEX_t->setItem(11,0, new QTableWidgetItem(QStringLiteral("imm")));
-    ui->IDEX_t->setItem(12,0, new QTableWidgetItem(QStringLiteral("aluOP")));
-    ui->IDEX_t->setItem(0,1, new QTableWidgetItem(QString::number(idexe->getRT())));
-    ui->IDEX_t->setItem(1,1, new QTableWidgetItem(QString::number(idexe->getRD())));
-    ui->IDEX_t->setItem(2,1, new QTableWidgetItem(QString::number(idexe->getA())));
-    ui->IDEX_t->setItem(3,1, new QTableWidgetItem(QString::number(idexe->getB())));
-    ui->IDEX_t->setItem(4,1, new QTableWidgetItem(QString::number(idexe->getRegDest())));
-    ui->IDEX_t->setItem(5,1, new QTableWidgetItem(QString::number(idexe->getRegWrite())));
-    ui->IDEX_t->setItem(6,1, new QTableWidgetItem(QString::number(idexe->getAluSrc()))); //adicionar semantica
-    ui->IDEX_t->setItem(7,1, new QTableWidgetItem(QString::number(idexe->getBranch())));
-    ui->IDEX_t->setItem(8,1, new QTableWidgetItem(QString::number(idexe->getMemRead())));
-    ui->IDEX_t->setItem(9,1, new QTableWidgetItem(QString::number(idexe->getMemWrite())));
-    ui->IDEX_t->setItem(10,1, new QTableWidgetItem(QString::number(idexe->getMemToReg())));
-    ui->IDEX_t->setItem(11,1, new QTableWidgetItem(QString::number(idexe->getImm())));
-    ui->IDEX_t->setItem(12,1, new QTableWidgetItem(QString::fromStdString(idexe->getAluOP())));
+    ui->IDEX_t->insertRow(13);
+    ui->IDEX_t->setItem(0,0, new QTableWidgetItem(QStringLiteral("NPC")));
+    ui->IDEX_t->setItem(1,0, new QTableWidgetItem(QStringLiteral("RT")));
+    ui->IDEX_t->setItem(2,0, new QTableWidgetItem(QStringLiteral("RD")));
+    ui->IDEX_t->setItem(3,0, new QTableWidgetItem(QStringLiteral("RA")));
+    ui->IDEX_t->setItem(4,0, new QTableWidgetItem(QStringLiteral("RB")));
+    ui->IDEX_t->setItem(5,0, new QTableWidgetItem(QStringLiteral("regDest")));
+    ui->IDEX_t->setItem(6,0, new QTableWidgetItem(QStringLiteral("regWrite")));
+    ui->IDEX_t->setItem(7,0, new QTableWidgetItem(QStringLiteral("aluSrc")));
+    ui->IDEX_t->setItem(8,0, new QTableWidgetItem(QStringLiteral("branch")));
+    ui->IDEX_t->setItem(9,0, new QTableWidgetItem(QStringLiteral("memRead")));
+    ui->IDEX_t->setItem(10,0, new QTableWidgetItem(QStringLiteral("memWrite")));
+    ui->IDEX_t->setItem(11,0, new QTableWidgetItem(QStringLiteral("writeToReg")));
+    ui->IDEX_t->setItem(12,0, new QTableWidgetItem(QStringLiteral("imm")));
+    ui->IDEX_t->setItem(13,0, new QTableWidgetItem(QStringLiteral("aluOP")));
+
+    ui->IDEX_t->setItem(0,1, new QTableWidgetItem(QString::number(idexe->getNPC())));
+    ui->IDEX_t->setItem(1,1, new QTableWidgetItem(QString::number(idexe->getRT())));
+    ui->IDEX_t->setItem(2,1, new QTableWidgetItem(QString::number(idexe->getRD())));
+    ui->IDEX_t->setItem(3,1, new QTableWidgetItem(QString::number(idexe->getA())));
+    ui->IDEX_t->setItem(4,1, new QTableWidgetItem(QString::number(idexe->getB())));
+    ui->IDEX_t->setItem(5,1, new QTableWidgetItem(QString::number(idexe->getRegDest())));
+    ui->IDEX_t->setItem(6,1, new QTableWidgetItem(QString::number(idexe->getRegWrite())));
+    ui->IDEX_t->setItem(7,1, new QTableWidgetItem(QString::number(idexe->getAluSrc()))); //adicionar semantica
+    ui->IDEX_t->setItem(8,1, new QTableWidgetItem(QString::number(idexe->getBranch())));
+    ui->IDEX_t->setItem(9,1, new QTableWidgetItem(QString::number(idexe->getMemRead())));
+    ui->IDEX_t->setItem(10,1, new QTableWidgetItem(QString::number(idexe->getMemWrite())));
+    ui->IDEX_t->setItem(11,1, new QTableWidgetItem(QString::number(idexe->getMemToReg())));
+    ui->IDEX_t->setItem(12,1, new QTableWidgetItem(QString::number(idexe->getImm())));
+    ui->IDEX_t->setItem(13,1, new QTableWidgetItem(QString::fromStdString(idexe->getAluOP())));
     ui->IDEX_t->setColumnWidth(0, 85);
     ui->IDEX_t->setColumnWidth(1, 53);
     updateIDEXT();
@@ -202,30 +208,32 @@ void MainWindow::initIDEXT(){
 void MainWindow::updateIDEXT(){
     QTableWidgetItem *item;
     item = ui->IDEX_t->item(0,1);
-    item->setText(QString::number(idexe->getRT()));
+    item->setText(QString::number(idexe->getNPC()));
     item = ui->IDEX_t->item(1,1);
-    item->setText(QString::number(idexe->getRD()));
+    item->setText(QString::number(idexe->getRT()));
     item = ui->IDEX_t->item(2,1);
-    item->setText(QString::number(idexe->getA()));
+    item->setText(QString::number(idexe->getRD()));
     item = ui->IDEX_t->item(3,1);
-    item->setText(QString::number(idexe->getB()));
+    item->setText(QString::number(idexe->getA()));
     item = ui->IDEX_t->item(4,1);
-    item->setText(QString::number(idexe->getRegDest()));
+    item->setText(QString::number(idexe->getB()));
     item = ui->IDEX_t->item(5,1);
-    item->setText(QString::number(idexe->getRegWrite()));
+    item->setText(QString::number(idexe->getRegDest()));
     item = ui->IDEX_t->item(6,1);
-    item->setText(QString::number(idexe->getAluSrc()));
+    item->setText(QString::number(idexe->getRegWrite()));
     item = ui->IDEX_t->item(7,1);
-    item->setText(QString::number(idexe->getBranch()));
+    item->setText(QString::number(idexe->getAluSrc()));
     item = ui->IDEX_t->item(8,1);
-    item->setText(QString::number(idexe->getMemRead()));
+    item->setText(QString::number(idexe->getBranch()));
     item = ui->IDEX_t->item(9,1);
-    item->setText(QString::number(idexe->getMemWrite()));
+    item->setText(QString::number(idexe->getMemRead()));
     item = ui->IDEX_t->item(10,1);
-    item->setText(QString::number(idexe->getMemToReg()));
+    item->setText(QString::number(idexe->getMemWrite()));
     item = ui->IDEX_t->item(11,1);
-    item->setText(QString::number(idexe->getImm()));
+    item->setText(QString::number(idexe->getMemToReg()));
     item = ui->IDEX_t->item(12,1);
+    item->setText(QString::number(idexe->getImm()));
+    item = ui->IDEX_t->item(13,1);
     item->setText(QString::fromStdString(idexe->getAluOP()));
 }
 
@@ -243,6 +251,8 @@ void MainWindow::updateEXMEM(){
 void MainWindow::initEXMEMT(){
     ui->EXMEM_t->insertColumn(0);
     ui->EXMEM_t->insertColumn(1);
+    ui->EXMEM_t->setColumnWidth(0, 90);
+    ui->EXMEM_t->setColumnWidth(1, 50);
     ui->EXMEM_t->insertRow(0);
     ui->EXMEM_t->insertRow(1);
     ui->EXMEM_t->insertRow(2);
@@ -305,6 +315,8 @@ void MainWindow::initMEMWB(){
     ui->IRMEMWB->setText(QString::fromStdString(memwb->getir()));
     ui->MEMWB_t->insertColumn(0);
     ui->MEMWB_t->insertColumn(1);
+    ui->MEMWB_t->setColumnWidth(0, 90);
+    ui->MEMWB_t->setColumnWidth(1, 50);
     ui->MEMWB_t->insertRow(0);
     ui->MEMWB_t->insertRow(1);
     ui->MEMWB_t->insertRow(2);
