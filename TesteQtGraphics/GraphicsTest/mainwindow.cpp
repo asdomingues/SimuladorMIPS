@@ -141,6 +141,7 @@ void MainWindow::initIDEX(){
     ui->wRegA->setText(QString::number(idexe->getA()));
     ui->wRegB->setText(QString::number(idexe->getB()));
     ui->IRIDEX->setText(QString::fromStdString(idexe->getIR()));
+    ui->aluOP->setText(QString::fromStdString(idexe->getAluOP()));
 }
 
 void MainWindow::updateIDEX(){
@@ -150,6 +151,7 @@ void MainWindow::updateIDEX(){
     ui->wRegA->setText(QString::number(idexe->getA()));
     ui->wRegB->setText(QString::number(idexe->getB()));
     ui->IRIDEX->setText(QString::fromStdString(idexe->getIR()));
+    ui->aluOP->setText(QString::fromStdString(idexe->getAluOP()));
 }
 
 void MainWindow::initIDEXT(){
