@@ -25,13 +25,9 @@ class IF{
 		IF(MemoriaInstrucao *memoria, IFID *ifid, EXMEM *exmem);
 		int get_pc();
 		void read_exmem();
-<<<<<<< HEAD:include/IF.hpp
-		bool get_pcSrc();
-=======
         int get_mux_origin();
 		bool get_pcSrc();
         void reset();
->>>>>>> gui_gets:TesteQtGraphics/GraphicsTest/include/IF.hpp
 };
 
 #endif

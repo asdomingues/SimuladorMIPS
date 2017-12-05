@@ -21,10 +21,7 @@ class WB{
 	public:
 		void read_tick();
 		void write_tick();
-<<<<<<< HEAD:include/WB.hpp
-=======
         void reset();
->>>>>>> gui_gets:TesteQtGraphics/GraphicsTest/include/WB.hpp
 		WB(BancoDeRegistradores *banco, MEMWB *memwb);
 
 };

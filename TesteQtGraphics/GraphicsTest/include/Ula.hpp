@@ -18,11 +18,7 @@ class Ula
         void set_aluOP(string valor);
 		int get_aluOUT();
     private:
-<<<<<<< HEAD:include/Ula.hpp
-        int aluIN1, aluIN2, aluOUT = 0;
-=======
         int aluIN1 = 0, aluIN2 = 0, aluOUT = 0;
->>>>>>> gui_gets:TesteQtGraphics/GraphicsTest/include/Ula.hpp
 };
 
 #endif // ULA_H

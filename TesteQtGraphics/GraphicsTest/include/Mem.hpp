@@ -9,11 +9,8 @@ class Mem{
 		Mem(EXMEM *exmem, MEMWB *memwb, string filename);
 		void read_tick();
 		void write_tick();
-<<<<<<< HEAD:include/Mem.hpp
-=======
         int get_memory_data(int pos);
         void reset();
->>>>>>> gui_gets:TesteQtGraphics/GraphicsTest/include/Mem.hpp
 	private:
 		Memoria m;
 		EXMEM *exmem;

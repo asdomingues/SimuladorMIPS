@@ -1,8 +1,4 @@
-<<<<<<< HEAD:source/Memoria.cpp
-#include "Memoria.hpp"
-=======
 #include "include/Memoria.hpp"
->>>>>>> gui_gets:TesteQtGraphics/GraphicsTest/source/Memoria.cpp
 /*
 #include <iostream>
 using namespace std;

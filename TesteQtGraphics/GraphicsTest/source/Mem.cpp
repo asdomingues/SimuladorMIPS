@@ -1,12 +1,6 @@
-<<<<<<< HEAD:source/Mem.cpp
-#include "Mem.hpp"
-#include "EXMEM.hpp"
-#include "MEMWB.hpp"
-=======
 #include "include/Mem.hpp"
 #include "include/EXMEM.hpp"
 #include "include/MEMWB.hpp"
->>>>>>> gui_gets:TesteQtGraphics/GraphicsTest/source/Mem.cpp
 #include <iostream>
 
 using namespace std;
@@ -18,14 +12,11 @@ Mem::Mem(EXMEM *exmem, MEMWB *memwb, string filename){
 	this->memwb = memwb;
 }
 
-<<<<<<< HEAD:source/Mem.cpp
-=======
 int Mem::get_memory_data(int pos){
     m.set_address(pos);
     return m.read();
 }
 
->>>>>>> gui_gets:TesteQtGraphics/GraphicsTest/source/Mem.cpp
 void Mem::read_tick(){
 	this->ir = exmem->get_ir();
 	this->alu_out = exmem->get_alu_out();
@@ -38,11 +29,7 @@ void Mem::read_tick(){
 	this->write_data = exmem->get_alu_in2();
 }
 
-<<<<<<< HEAD:source/Mem.cpp
-//checar timeline
-=======
 
->>>>>>> gui_gets:TesteQtGraphics/GraphicsTest/source/Mem.cpp
 void Mem::write_tick(){
 	memwb->setir(this->ir);
 	memwb->setALUOut(this->alu_out);

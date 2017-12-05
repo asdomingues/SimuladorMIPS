@@ -1,8 +1,4 @@
-<<<<<<< HEAD:source/Registrador.cpp
-#include "Registrador.hpp"
-=======
 #include "include/Registrador.hpp"
->>>>>>> gui_gets:TesteQtGraphics/GraphicsTest/source/Registrador.cpp
 
 Registrador::Registrador(){
     this->nome = "R";

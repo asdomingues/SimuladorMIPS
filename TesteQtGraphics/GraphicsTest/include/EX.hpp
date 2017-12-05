@@ -33,12 +33,8 @@ class EX {
 
 	public:
 		void read_tick();
-<<<<<<< HEAD:include/EX.hpp
-		void write_tick();
-=======
         void write_tick();
         void reset();
->>>>>>> gui_gets:TesteQtGraphics/GraphicsTest/include/EX.hpp
 		EX(Ula *alu, IDEXE *idex, EXMEM *exmem);
 };
 
