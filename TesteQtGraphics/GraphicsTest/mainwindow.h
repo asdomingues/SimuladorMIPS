@@ -79,6 +79,9 @@ private:
 
     void initEXMEM();
     void updateEXMEM();
+
+    void initDataMemoryT();
+    void updateDataMemoryT();
 };
 
 #endif // MAINWINDOW_H

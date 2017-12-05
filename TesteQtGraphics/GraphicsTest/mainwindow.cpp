@@ -29,7 +29,9 @@ MainWindow::MainWindow(QWidget *parent) :
     this->initIFID();
     this->initIDEX();
     this->initEXMEM();
+    this->initDataMemoryT();
 }
+
 
 void MainWindow::initInstructionT(){
     ui->instruction_t->insertColumn(0);
@@ -52,6 +54,29 @@ void MainWindow::initInstructionT(){
     item->setBackground(Qt::yellow);
     item = ui->instruction_t->item(0,1);
     item->setBackground(Qt::yellow);
+}
+
+
+void MainWindow::initDataMemoryT(){
+    ui->datamemory_t->insertColumn(0);
+    ui->datamemory_t->insertColumn(1);
+    ui->datamemory_t->setHorizontalHeaderItem(0, new QTableWidgetItem("Posição"));
+    ui->datamemory_t->setHorizontalHeaderItem(1, new QTableWidgetItem("Valor"));
+    ui->datamemory_t->setColumnWidth(0, 60);
+    ui->datamemory_t->setColumnWidth(1, 120);
+    for(int i = 0; i < TAM/4; i++){
+        ui->datamemory_t->insertRow(i);
+        ui->datamemory_t->setItem(i,1, new QTableWidgetItem(QString::fromStdString(to_string(memstage->get_memory_data(i*4)))));
+        ui->datamemory_t->setItem(i,0, new QTableWidgetItem (QString::number(i*4)));
+    }
+}
+
+void MainWindow::updateDataMemoryT(){
+    QTableWidgetItem *item;
+    for(int i = 0; i < TAM/4; i++){
+        item = ui->datamemory_t->item(i,1);
+        item->setText(QString::fromStdString(to_string(memstage->get_memory_data(i*4))));
+    }
 }
 
 void MainWindow::updateInstructionT(){
@@ -304,4 +329,5 @@ void MainWindow::on_pushButton_clicked()
     updateRegisterT();
     updateIDEX();
     updateEXMEM();
+    updateDataMemoryT();
 }

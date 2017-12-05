@@ -9,6 +9,7 @@ class Mem{
 		Mem(EXMEM *exmem, MEMWB *memwb, string filename);
 		void read_tick();
 		void write_tick();
+        int get_memory_data(int pos);
 	private:
 		Memoria m;
 		EXMEM *exmem;

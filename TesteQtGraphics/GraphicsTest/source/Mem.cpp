@@ -12,6 +12,11 @@ Mem::Mem(EXMEM *exmem, MEMWB *memwb, string filename){
 	this->memwb = memwb;
 }
 
+int Mem::get_memory_data(int pos){
+    m.set_address(pos);
+    return m.read();
+}
+
 void Mem::read_tick(){
 	this->ir = exmem->get_ir();
 	this->alu_out = exmem->get_alu_out();
