@@ -80,6 +80,9 @@ private:
     void initEXMEM();
     void updateEXMEM();
 
+    void initMEMWB();
+    void updateMEMWB();
+
     void initDataMemoryT();
     void updateDataMemoryT();
 };

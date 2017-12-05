@@ -4,6 +4,9 @@ MEMWB::MEMWB(){
     ir = "";
     RegWrite = 0;
     MemtoReg = 0;
+    ALUOut = 0;
+    LMemoryData = 0;
+    wr_address = 0;
 }
 
 string MEMWB::getir(){

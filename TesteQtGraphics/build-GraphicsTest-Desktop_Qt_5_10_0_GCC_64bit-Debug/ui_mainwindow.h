@@ -74,6 +74,10 @@ public:
     QTextBrowser *IREXMEM;
     QTableWidget *datamemory_t;
     QLabel *label_18;
+    QTableWidget *MEMWB_t;
+    QLabel *label_19;
+    QTextBrowser *IRMEMWB;
+    QLabel *label_20;
     QMenuBar *menuBar;
     QMenu *menuArquivo;
     QToolBar *mainToolBar;
@@ -248,6 +252,21 @@ public:
         label_18 = new QLabel(centralWidget);
         label_18->setObjectName(QStringLiteral("label_18"));
         label_18->setGeometry(QRect(290, 240, 161, 20));
+        MEMWB_t = new QTableWidget(centralWidget);
+        MEMWB_t->setObjectName(QStringLiteral("MEMWB_t"));
+        MEMWB_t->setGeometry(QRect(1030, 50, 156, 192));
+        MEMWB_t->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        MEMWB_t->verticalHeader()->setVisible(false);
+        MEMWB_t->verticalHeader()->setHighlightSections(false);
+        label_19 = new QLabel(centralWidget);
+        label_19->setObjectName(QStringLiteral("label_19"));
+        label_19->setGeometry(QRect(1070, 30, 71, 16));
+        IRMEMWB = new QTextBrowser(centralWidget);
+        IRMEMWB->setObjectName(QStringLiteral("IRMEMWB"));
+        IRMEMWB->setGeometry(QRect(840, 80, 171, 41));
+        label_20 = new QLabel(centralWidget);
+        label_20->setObjectName(QStringLiteral("label_20"));
+        label_20->setGeometry(QRect(880, 60, 81, 20));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -293,6 +312,8 @@ public:
         label_16->setText(QApplication::translate("MainWindow", "EX/MEM", nullptr));
         label_17->setText(QApplication::translate("MainWindow", "EX/MEM IR", nullptr));
         label_18->setText(QApplication::translate("MainWindow", "Mem\303\263ria de Dados", nullptr));
+        label_19->setText(QApplication::translate("MainWindow", "MEM/WB", nullptr));
+        label_20->setText(QApplication::translate("MainWindow", "MEM/WB IR", nullptr));
         menuArquivo->setTitle(QApplication::translate("MainWindow", "Ar&quivo", nullptr));
     } // retranslateUi
 

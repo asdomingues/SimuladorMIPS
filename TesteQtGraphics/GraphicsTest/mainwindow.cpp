@@ -29,6 +29,7 @@ MainWindow::MainWindow(QWidget *parent) :
     this->initIFID();
     this->initIDEX();
     this->initEXMEM();
+    this->initMEMWB();
     this->initDataMemoryT();
 }
 
@@ -300,6 +301,46 @@ void MainWindow::updateEXMEMT(){
     item->setText(QString::number(exmem->get_mem_to_reg()));
 }
 
+void MainWindow::initMEMWB(){
+    ui->IRMEMWB->setText(QString::fromStdString(memwb->getir()));
+    ui->MEMWB_t->insertColumn(0);
+    ui->MEMWB_t->insertColumn(1);
+    ui->MEMWB_t->insertRow(0);
+    ui->MEMWB_t->insertRow(1);
+    ui->MEMWB_t->insertRow(2);
+    ui->MEMWB_t->insertRow(3);
+    ui->MEMWB_t->insertRow(4);
+    ui->MEMWB_t->setHorizontalHeaderItem(0, new QTableWidgetItem("Nome"));
+    ui->MEMWB_t->setHorizontalHeaderItem(1, new QTableWidgetItem("Valor"));
+    ui->MEMWB_t->setItem(0,0, new QTableWidgetItem(QStringLiteral("aluOUT")));
+    ui->MEMWB_t->setItem(1,0, new QTableWidgetItem(QStringLiteral("loadData")));
+    ui->MEMWB_t->setItem(2,0, new QTableWidgetItem(QStringLiteral("regWrite")));
+    ui->MEMWB_t->setItem(3,0, new QTableWidgetItem(QStringLiteral("memToReg")));
+    ui->MEMWB_t->setItem(4,0, new QTableWidgetItem(QStringLiteral("wrRegAddr")));
+    ui->MEMWB_t->setItem(0,1, new QTableWidgetItem(QString::number(memwb->getALUOut())));
+    ui->MEMWB_t->setItem(1,1, new QTableWidgetItem(QString::number(memwb->getLMemoryData())));
+    ui->MEMWB_t->setItem(2,1, new QTableWidgetItem(QString::number(memwb->getRegWrite())));
+    ui->MEMWB_t->setItem(3,1, new QTableWidgetItem(QString::number(memwb->getMemtoReg())));
+    ui->MEMWB_t->setItem(4,1, new QTableWidgetItem(QString::number(memwb->get_reg_address())));
+
+
+}
+void MainWindow::updateMEMWB(){
+    QTableWidgetItem *item;
+    ui->IRMEMWB->setText(QString::fromStdString(memwb->getir()));
+    item = ui->MEMWB_t->item(0,1);
+    item->setText(QString::number(memwb->getALUOut()));
+    item = ui->MEMWB_t->item(1,1);
+    item->setText(QString::number(memwb->getLMemoryData()));
+    item = ui->MEMWB_t->item(2,1);
+    item->setText(QString::number(memwb->getRegWrite()));
+    item = ui->MEMWB_t->item(3,1);
+    item->setText(QString::number(memwb->getMemtoReg()));
+    item = ui->MEMWB_t->item(4,1);
+    item->setText(QString::number(memwb->get_reg_address()));
+}
+
+
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -329,5 +370,6 @@ void MainWindow::on_pushButton_clicked()
     updateRegisterT();
     updateIDEX();
     updateEXMEM();
+    updateMEMWB();
     updateDataMemoryT();
 }
