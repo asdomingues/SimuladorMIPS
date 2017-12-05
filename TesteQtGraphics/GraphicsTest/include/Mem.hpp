@@ -10,6 +10,7 @@ class Mem{
 		void read_tick();
 		void write_tick();
         int get_memory_data(int pos);
+        void reset();
 	private:
 		Memoria m;
 		EXMEM *exmem;

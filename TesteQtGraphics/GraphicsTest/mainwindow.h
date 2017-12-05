@@ -42,6 +42,8 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_resetButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     MemoriaInstrucao *memoria_instrucao;
@@ -51,6 +53,7 @@ private:
     MEMWB *memwb;
     IDEXE *idexe;
     BancoDeRegistradores *banco;
+    int lastpc;
 
     //criar todos os estagios
     IF *ifstage;

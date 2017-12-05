@@ -55,3 +55,12 @@ int MEMWB::get_reg_address(){
 void MEMWB::set_reg_address(int val){
     wr_address = val;
 }
+
+void MEMWB::reset(){
+    ir = "";
+    RegWrite = 0;
+    MemtoReg = 0;
+    ALUOut = 0;
+    LMemoryData = 0;
+    wr_address = 0;
+}

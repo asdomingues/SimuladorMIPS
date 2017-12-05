@@ -33,6 +33,7 @@ ID::ID(BancoDeRegistradores *banco, IFID *ifid, IDEXE *idexe){
 	memWrite =  false;
 	memToReg = false;
 	rs=rt=rd=imm=0;
+    npc=0;
 	aluOP = "";
 }
 
@@ -222,6 +223,19 @@ void ID::setIFID(IFID *ifid){
 
 void ID::setIDEXE(IDEXE *idexe){
 	this->idexe=idexe;
+}
+
+void ID::reset(){
+    regDest = false;
+    regWrite = false;
+    aluSrc = false;
+    branch = false;
+    memRead = false;
+    memWrite =  false;
+    memToReg = false;
+    rs=rt=rd=imm=0;
+    npc=0;
+    aluOP = "";
 }
 
 int ID::get_reg1(){

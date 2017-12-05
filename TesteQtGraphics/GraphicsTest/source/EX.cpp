@@ -84,8 +84,14 @@ void EX::write_tick() {
 
 }
 
-/*
-int main(void) {
-	return 0;
+void EX::reset(){
+    this->ir = "";
+    this->reg_dst = false;
+    this->reg_write = false;
+    this->alu_src = false;
+    this->branch = false;
+    this->mem_read = false;
+    this->mem_write = false;
+    this->mem_to_reg = false;
+    this->alu_op = "";
 }
-*/

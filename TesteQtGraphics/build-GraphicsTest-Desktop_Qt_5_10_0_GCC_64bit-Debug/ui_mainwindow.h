@@ -98,6 +98,7 @@ public:
     QLabel *label_27;
     QTextBrowser *muxMemToReg;
     QLabel *label_28;
+    QPushButton *resetButton;
     QMenuBar *menuBar;
     QMenu *menuArquivo;
     QToolBar *mainToolBar;
@@ -128,7 +129,7 @@ public:
         label_4->setGeometry(QRect(220, 230, 31, 16));
         pushButton = new QPushButton(centralWidget);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(80, 550, 101, 31));
+        pushButton->setGeometry(QRect(90, 550, 101, 31));
         label_11 = new QLabel(centralWidget);
         label_11->setObjectName(QStringLiteral("label_11"));
         label_11->setGeometry(QRect(540, 230, 41, 16));
@@ -356,10 +357,10 @@ public:
         label_26->setFont(font);
         muxRegDest = new QTextBrowser(centralWidget);
         muxRegDest->setObjectName(QStringLiteral("muxRegDest"));
-        muxRegDest->setGeometry(QRect(640, 510, 101, 31));
+        muxRegDest->setGeometry(QRect(660, 490, 51, 31));
         label_6 = new QLabel(centralWidget);
         label_6->setObjectName(QStringLiteral("label_6"));
-        label_6->setGeometry(QRect(640, 490, 101, 20));
+        label_6->setGeometry(QRect(640, 470, 101, 20));
         muxAluSrc = new QTextBrowser(centralWidget);
         muxAluSrc->setObjectName(QStringLiteral("muxAluSrc"));
         muxAluSrc->setGeometry(QRect(650, 230, 61, 31));
@@ -372,6 +373,9 @@ public:
         label_28 = new QLabel(centralWidget);
         label_28->setObjectName(QStringLiteral("label_28"));
         label_28->setGeometry(QRect(1160, 480, 121, 20));
+        resetButton = new QPushButton(centralWidget);
+        resetButton->setObjectName(QStringLiteral("resetButton"));
+        resetButton->setGeometry(QRect(270, 550, 101, 31));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -427,6 +431,7 @@ public:
         label_6->setText(QApplication::translate("MainWindow", "Mux: regDest", nullptr));
         label_27->setText(QApplication::translate("MainWindow", "Mux: aluSrc", nullptr));
         label_28->setText(QApplication::translate("MainWindow", "Mux: memToReg", nullptr));
+        resetButton->setText(QApplication::translate("MainWindow", "Resetar", nullptr));
         menuArquivo->setTitle(QApplication::translate("MainWindow", "Ar&quivo", nullptr));
     } // retranslateUi
 

@@ -26,6 +26,7 @@ class MEMWB{
         int get_reg_address();
         void set_reg_address(int val);
 
+        void reset();
 
 
     private:

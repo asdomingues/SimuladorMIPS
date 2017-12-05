@@ -29,7 +29,7 @@ void Mem::read_tick(){
 	this->write_data = exmem->get_alu_in2();
 }
 
-//checar timeline
+
 void Mem::write_tick(){
 	memwb->setir(this->ir);
 	memwb->setALUOut(this->alu_out);
@@ -53,4 +53,17 @@ void Mem::write_tick(){
 	}
 
 	
+}
+
+void Mem::reset(){
+    mem_write = false;
+    mem_read = false;
+    mem_to_reg = false;
+    reg_write = false;
+    address = 0;
+    write_data = 0;
+    read_data = 0;
+    write_reg_address = 0;
+    alu_out = 0;
+    ir="";
 }

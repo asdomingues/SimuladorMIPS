@@ -104,8 +104,17 @@ bool EXMEM::get_mem_write() {
 bool EXMEM::get_mem_to_reg() {
 	return this->mem_to_reg;
 }
-/*
-int main (void) {
-	return 0;
+
+void EXMEM::reset(){
+    this->ir = "";
+    this->branch_address = 0;
+    this->alu_zero = false;
+    this->alu_out = 0;
+    this->alu_in2 = 0;
+    this->write_reg_address = false;
+    this->reg_write = false;
+    this->branch = false;
+    this->mem_read = false;
+    this->mem_write = false;
+    this->mem_to_reg = false;
 }
-*/

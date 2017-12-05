@@ -59,7 +59,7 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>80</x>
+      <x>90</x>
       <y>550</y>
       <width>101</width>
       <height>31</height>
@@ -828,9 +828,9 @@
    <widget class="QTextBrowser" name="muxRegDest">
     <property name="geometry">
      <rect>
-      <x>640</x>
-      <y>510</y>
-      <width>101</width>
+      <x>660</x>
+      <y>490</y>
+      <width>51</width>
       <height>31</height>
      </rect>
     </property>
@@ -839,7 +839,7 @@
     <property name="geometry">
      <rect>
       <x>640</x>
-      <y>490</y>
+      <y>470</y>
       <width>101</width>
       <height>20</height>
      </rect>
@@ -892,6 +892,19 @@
     </property>
     <property name="text">
      <string>Mux: memToReg</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="resetButton">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>550</y>
+      <width>101</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Resetar</string>
     </property>
    </widget>
   </widget>

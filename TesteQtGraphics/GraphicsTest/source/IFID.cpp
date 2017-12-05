@@ -21,3 +21,8 @@ void IFID::setNPC(int npc){
 void IFID::setIR(string ir){
 	this->ir = ir;
 }
+
+void IFID::reset(){
+    npc=0;
+    ir =  "";
+}

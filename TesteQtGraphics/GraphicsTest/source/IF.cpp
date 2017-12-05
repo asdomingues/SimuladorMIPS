@@ -49,51 +49,9 @@
     bool IF::get_pcSrc(){
 		return pcSrc;
 	}
-/*
-	int main(void){
 
-		//criar memoria
-
-		MemoriaInstrucao memoria;
-
-		memoria.set_address(0);
-		memoria.set_wdata("add $r3, $r2, %r1");
-		memoria.write();
-
-		memoria.set_address(4);
-		memoria.set_wdata("sub $r2, $r2, %r1");
-		memoria.write();
-
-		IFID ifid;
-		EXMEM exmem;
-		IF ifstage(&memoria, &ifid, &exmem);
-		ifstage.tick();
-
-		cout << ifid.getIR();
-		cout << "\n";
-		cout << ifid.getNPC();
-		cout << "\n";
-		//set branch
-		exmem.set_branch(true);
-		exmem.set_alu_zero(true);
-		exmem.set_branch_address(0);
-
-		ifstage.tick();
-
-		cout << ifid.getIR();
-		cout << "\n";
-		cout << ifid.getNPC();
-		cout << "\n";
-		exmem.set_alu_zero(false);
-
-		ifstage.tick();
-
-		cout << ifid.getIR();
-		cout << "\n";
-		cout << ifid.getNPC();
-		cout << "\n";
-
-		
-		return 0;
-	}
-*/
+    void IF::reset(){
+        ir="";
+        pc.set_valor(0);
+        pc.set_nome("pc");
+    }

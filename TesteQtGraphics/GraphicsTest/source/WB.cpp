@@ -44,39 +44,10 @@ using namespace std;
 	}
 
 
-	/*int main(){
-
-		BancoDeRegistradores banco(32);
-		MEMWB memwb;
-		WB wb(&banco, &memwb);
-
-        memwb.setALUOut(5);
-
-        memwb.setLMemoryData(2);
-
-        memwb.setRegWrite(true);
-
-        memwb.setMemtoReg(false);
-        memwb.set_reg_address(0);
-
-        wb.tick();
-         memwb.setALUOut(3);
-
-        memwb.setLMemoryData(1);
-
-        memwb.setRegWrite(true);
-
-        memwb.setMemtoReg(true);
-
-        memwb.set_reg_address(0);
-        wb.tick();
-
-        cout << banco.read_reg1(0);
-
-        wb.tick();
-         cout << banco.read_reg1(0);
-
-
-
-		return 0;
-	}*/
+    void WB::reset(){
+        reg_write = false;
+        alu_out = 0;
+        l_memory_data = 0;
+        mem_to_reg = false;
+        reg_address = 0;
+    }

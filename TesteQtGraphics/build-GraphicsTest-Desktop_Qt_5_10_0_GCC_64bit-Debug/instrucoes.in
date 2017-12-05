@@ -18,6 +18,6 @@ nop
 nop
 and $r3, $r0, $r1
 or $r3, $r1, $r0
-beq $r1, $r2, 1
+beq $r1, $r1, -2
 
 

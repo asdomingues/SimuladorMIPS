@@ -27,6 +27,7 @@ class IF{
 		void read_exmem();
         int get_mux_origin();
 		bool get_pcSrc();
+        void reset();
 };
 
 #endif

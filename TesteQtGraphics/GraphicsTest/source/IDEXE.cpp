@@ -140,3 +140,21 @@
 		string IDEXE::getAluOP(){
 			return aluOP;
 		}
+
+        void IDEXE::reset(){
+            ir="";
+            npc=0;
+            rt=0;
+            rd=0;
+            regDest=false;
+            regWrite=false;
+            aluSrc=false;
+            branch=false;
+            memRead=false;
+            memWrite=false;
+            memToReg=false;
+            ra=0;
+            rb=0;
+            imm=0;
+            aluOP="";
+        }

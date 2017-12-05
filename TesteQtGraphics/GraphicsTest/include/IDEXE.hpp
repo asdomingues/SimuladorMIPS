@@ -54,6 +54,7 @@ class IDEXE{
 		bool getMemWrite();
 		bool getMemToReg();
 		string getAluOP();
+        void reset();
 };
 
 #endif

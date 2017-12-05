@@ -55,6 +55,7 @@ void MainWindow::initInstructionT(){
     item->setBackground(Qt::yellow);
     item = ui->instruction_t->item(0,1);
     item->setBackground(Qt::yellow);
+    lastpc=0;
 }
 
 
@@ -82,10 +83,11 @@ void MainWindow::updateDataMemoryT(){
 
 void MainWindow::updateInstructionT(){
     int pc = ifstage->get_pc()/4;
-    QTableWidgetItem *item = ui->instruction_t->item(pc-1,0);
+    QTableWidgetItem *item = ui->instruction_t->item(lastpc,0);
     item->setBackground(Qt::white);
-    item = ui->instruction_t->item(pc-1,1);
+    item = ui->instruction_t->item(lastpc,1);
     item->setBackground(Qt::white);
+    lastpc = pc;
     item = ui->instruction_t->item(pc,0);
     item->setBackground(Qt::yellow);
     item = ui->instruction_t->item(pc,1);
@@ -239,12 +241,22 @@ void MainWindow::updateIDEXT(){
 
 void MainWindow::initEXMEM(){
     //ui->ALURes->setText(QString::number(exmem->get_alu_out()));
+    ui->muxAluSrc->setText(QStringLiteral("RB"));
+    ui->muxRegDest->setText(QStringLiteral("RT"));
     ui->IREXMEM->setText(QString::fromStdString(exmem->get_ir()));
     initEXMEMT();
 }
 void MainWindow::updateEXMEM(){
     //ui->ALURes->setText(QString::number(exmem->get_alu_out()));
     ui->IREXMEM->setText(QString::fromStdString(exmem->get_ir()));
+    if(idexe->getAluSrc()==0)
+        ui->muxAluSrc->setText(QStringLiteral("RB"));
+    else
+        ui->muxAluSrc->setText(QStringLiteral("imm"));
+    if(idexe->getRegDest()==0)
+        ui->muxRegDest->setText(QStringLiteral("RT"));
+    else
+        ui->muxRegDest->setText(QStringLiteral("RD"));
     updateEXMEMT();
 }
 
@@ -313,6 +325,8 @@ void MainWindow::updateEXMEMT(){
 
 void MainWindow::initMEMWB(){
     ui->IRMEMWB->setText(QString::fromStdString(memwb->getir()));
+    ui->muxMemToReg->setText(QStringLiteral("aluOUT"));
+
     ui->MEMWB_t->insertColumn(0);
     ui->MEMWB_t->insertColumn(1);
     ui->MEMWB_t->setColumnWidth(0, 90);
@@ -338,6 +352,13 @@ void MainWindow::initMEMWB(){
 
 }
 void MainWindow::updateMEMWB(){
+    if(memwb->getMemtoReg()==0){
+        ui->muxMemToReg->setText(QStringLiteral("aluOUT"));
+    }else{
+        ui->muxMemToReg->setText(QStringLiteral("loadData"));
+    }
+
+
     QTableWidgetItem *item;
     ui->IRMEMWB->setText(QString::fromStdString(memwb->getir()));
     item = ui->MEMWB_t->item(0,1);
@@ -384,4 +405,25 @@ void MainWindow::on_pushButton_clicked()
     updateEXMEM();
     updateMEMWB();
     updateDataMemoryT();
+}
+
+void MainWindow::on_resetButton_clicked()
+{
+    ifstage->reset();
+    idstage->reset();
+    exstage->reset();
+    memstage->reset();
+    wbstage->reset();
+    ifid->reset();
+    idexe->reset();
+    exmem->reset();
+    memwb->reset();
+
+    updateIFID();
+    updateRegisterT();
+    updateIDEX();
+    updateEXMEM();
+    updateMEMWB();
+    updateDataMemoryT();
+
 }

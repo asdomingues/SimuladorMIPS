@@ -35,6 +35,7 @@ class EXMEM {
 		bool get_mem_read();
 		bool get_mem_write();
 		bool get_mem_to_reg();
+        void reset();
 	private:
 		string ir;
 
@@ -49,6 +50,7 @@ class EXMEM {
 		bool mem_read;
 		bool mem_write;
 		bool mem_to_reg;
+
 };
 
 #endif

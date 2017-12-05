@@ -21,6 +21,7 @@ class WB{
 	public:
 		void read_tick();
 		void write_tick();
+        void reset();
 		WB(BancoDeRegistradores *banco, MEMWB *memwb);
 
 };

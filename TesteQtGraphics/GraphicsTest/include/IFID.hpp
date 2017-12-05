@@ -15,6 +15,7 @@ class IFID{
 		void setNPC(int npc);
 		string getIR();
 		int getNPC();
+        void reset();
 
 };
 
