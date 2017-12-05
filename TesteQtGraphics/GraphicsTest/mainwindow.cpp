@@ -238,12 +238,12 @@ void MainWindow::updateIDEXT(){
 }
 
 void MainWindow::initEXMEM(){
-    ui->ALURes->setText(QString::number(exmem->get_alu_out()));
+    //ui->ALURes->setText(QString::number(exmem->get_alu_out()));
     ui->IREXMEM->setText(QString::fromStdString(exmem->get_ir()));
     initEXMEMT();
 }
 void MainWindow::updateEXMEM(){
-    ui->ALURes->setText(QString::number(exmem->get_alu_out()));
+    //ui->ALURes->setText(QString::number(exmem->get_alu_out()));
     ui->IREXMEM->setText(QString::fromStdString(exmem->get_ir()));
     updateEXMEMT();
 }
