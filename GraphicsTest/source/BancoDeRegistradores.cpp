@@ -32,12 +32,8 @@ BancoDeRegistradores::BancoDeRegistradores(int size){
 	}
 }
 
-/*int main (){
-	BancoDeRegistradores b(NREGISTRADORES);
-	b.set_wreg(3);
-	b.set_wdata(55);
-	b.reg_write();
-	b.read_reg1(3);
-	std::cout << b.read_reg1(3); 
-	}
-*/
+void BancoDeRegistradores::reset(){
+    for(int i = 0; i < NREGISTRADORES; i++){
+        this->banco[i].set_valor(0);
+    }
+}

@@ -42,10 +42,6 @@ void MainWindow::initInstructionT(){
     ui->instruction_t->setColumnWidth(0, 45);
     ui->instruction_t->setColumnWidth(1, 120);
     for(int i = 0; i < TAM/4; i++){
-        /*TODO
-            Mudar background do item sendo executado.
-            Scroll to item.
-        */
         ui->instruction_t->insertRow(i);
         memoria_instrucao->set_address(i*4);
         ui->instruction_t->setItem(i,1, new QTableWidgetItem(QString::fromStdString(memoria_instrucao->read())));
@@ -113,9 +109,7 @@ void MainWindow::updateRegisterT(){
     QTableWidgetItem *item;
     for(int i = 0; i < NREGISTRADORES; i++){
        item = ui->register_t->item(i,1);
-       //cout <<"i = " << item << "      " << item->text().toStdString() << endl;
        item->setText(QString::number(banco->read_reg1(i)));
-       //ui->register_t->setItem(i,1, new QTableWidgetItem (new QString::number(banco->read_reg1(i))));
     }
 }
 
@@ -242,14 +236,12 @@ void MainWindow::updateIDEXT(){
 }
 
 void MainWindow::initEXMEM(){
-    //ui->ALURes->setText(QString::number(exmem->get_alu_out()));
     ui->muxAluSrc->setText(QStringLiteral("RB"));
     ui->muxRegDest->setText(QStringLiteral("RT"));
     ui->IREXMEM->setText(QString::fromStdString(exmem->get_ir()));
     initEXMEMT();
 }
 void MainWindow::updateEXMEM(){
-    //ui->ALURes->setText(QString::number(exmem->get_alu_out()));
     ui->IREXMEM->setText(QString::fromStdString(exmem->get_ir()));
     if(idexe->getAluSrc()==0)
         ui->muxAluSrc->setText(QStringLiteral("RB"));

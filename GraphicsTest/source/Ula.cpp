@@ -3,7 +3,6 @@
 
 Ula::Ula(){}
 
-//OBS: Para realizar o OR e o AND foi dividido um inteiro em potencias de 2 para tratar ele como se fosse um binario
 int Ula::operation(){
 	this->aluOUT = 0;
 	if(aluOP == "add")//soma

@@ -40,6 +40,7 @@ void MemoriaInstrucao::load_instructions(string filename){
         pc++;
     }
     n_instructions=pc;  
+    entrada.close();
 
 }
 

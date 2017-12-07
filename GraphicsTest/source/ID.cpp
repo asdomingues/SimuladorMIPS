@@ -50,14 +50,12 @@ void ID::controlSignals(){
 		results.at(0)="nop";
 	}
 	
-	//cout << "string na id: " << results.at(0) << endl;
 	//find what type of instruction it is
 	//according to type
 	//generate signals
 
 
 	if(results.at(0)=="add" || results.at(0)=="sub" || results.at(0)=="or" || results.at(0)=="and"){
-		//cout << "encontrei tipo r\n";
 
 		//gerar sinais
 		aluOP = results.at(0);
@@ -93,7 +91,6 @@ void ID::controlSignals(){
 				
 	}else{
 		if(results.at(0)=="beq"){
-			//cout << "encontrei beq\n";
 
 			//gerar sinais
 			aluOP = "sub";
@@ -123,7 +120,6 @@ void ID::controlSignals(){
 
 		}else{
 			if(results.at(0)=="lw" || results.at(0)=="sw"){
-				//cout<<"lw ou sw\n";
 
 				rd=0;
 
@@ -162,7 +158,6 @@ void ID::controlSignals(){
 				}
 			}else{
 				//NOP
-				//cout << "NOP\n";
 				//gerar sinais
 				aluOP = "";
 				regDest=false;
@@ -236,6 +231,7 @@ void ID::reset(){
     rs=rt=rd=imm=0;
     npc=0;
     aluOP = "";
+    banco->reset();
 }
 
 int ID::get_reg1(){
@@ -245,39 +241,3 @@ int ID::get_reg1(){
 int ID::get_reg2(){
 	return rt;
 }
-
-/*
-int main(){
-	string test = "lw $r1, 100($r2)";
-	string test2 ="add $r3, $r2, $r1";
-
-	IFID ifid;
-	IDEXE idexe;
-	BancoDeRegistradores banco(32);
-	ID id(&banco, &ifid, &idexe);
-
-	ifid.setIR(test);
-
-	banco.set_wreg(2);
-	banco.set_wdata(2);
-	banco.reg_write();
-
-	id.tick();
-	cout << idexe.getA();
-	cout << "\n";
-	cout << idexe.getB();
-	cout << "\n";
-	cout << idexe.getImm();
-	cout << "\n";
-	id.tick();
-	cout << idexe.getA();
-	cout << "\n";
-	cout << idexe.getB();
-	cout << "\n";
-	cout << idexe.getImm();
-	cout << "\n";
-
-
-	return 0;
-}
-*/

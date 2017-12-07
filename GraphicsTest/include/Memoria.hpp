@@ -14,6 +14,7 @@ class Memoria{
 		int read();
 		void write();
 		int load_memory(string); 
+        void reset(string name);
 	private:
 		int address, w_data;
 		int dados[TAM];

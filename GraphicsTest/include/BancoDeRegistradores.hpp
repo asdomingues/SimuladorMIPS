@@ -11,6 +11,7 @@ class BancoDeRegistradores{
 		void reg_write();
         string get_name(int reg);
 		BancoDeRegistradores(int size);
+        void reset();
 	private:
 		Registrador banco[NREGISTRADORES];
 		int write_register, write_data;

@@ -1,8 +1,6 @@
 #include "include/Memoria.hpp"
-/*
 #include <iostream>
-using namespace std;
-*/
+
 Memoria::Memoria(){
 	address = 0;
 	w_data = 0;
@@ -10,7 +8,6 @@ Memoria::Memoria(){
 		dados[i] = 0;
 }
 
-// TODO tratar end > size
 void Memoria::set_address(int val){
 	val /= 4;
 	address = val % TAM;
@@ -30,25 +27,23 @@ void Memoria::write(){
 
 int Memoria::load_memory(string name){
 	FILE *fp = fopen(name.c_str(), "r");
+
+    rewind(fp);
 	int data, i;
 	
 	if(fp == NULL)
 		return -1;
 
-	for(i = 0; i < TAM && fscanf(fp, "%d", &data) > 0; i++)
+    for(i = 0; i < TAM && fscanf(fp, "%d", &data) > 0; i++){
 		this->dados[i] = data;
+        cout << data << endl;
+    }
+
+    fclose(fp);
 
 	return i;
 }
-/*
-int main (int argc, char * argv[]){
-	Memoria m;
-	m.load_memory("registrador.in");
-	m.set_address(0);
-	cout << m.read() << endl;
-	m.set_address(4);
-	cout << m.read() << endl;
-	m.set_address(8);
-	cout << m.read() << endl;
+
+void Memoria::reset(string name){
+    this->load_memory(name);
 }
-*/

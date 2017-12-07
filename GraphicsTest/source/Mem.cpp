@@ -66,4 +66,5 @@ void Mem::reset(){
     write_reg_address = 0;
     alu_out = 0;
     ir="";
+    m.reset("registrador.in");
 }
