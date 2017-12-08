@@ -5,12 +5,15 @@
 #include "IFID.hpp"
 #include "IDEXE.hpp"
 
+/**
+ * @brief Estagio ID
+ */
 class ID{
 	private:
-		BancoDeRegistradores *banco;
-		IFID *ifid;
+        BancoDeRegistradores *banco;
+        IFID *ifid;
 		IDEXE *idexe;
-		bool regDest;
+        bool regDest; //Sinais de controle
 		bool regWrite;
 		bool aluSrc;
 		bool branch;
@@ -18,14 +21,13 @@ class ID{
 		bool memWrite;
 		bool memToReg;
 		string aluOP;
-		int rs;
+        int rs; //Numeros de registradores obtidos com decodificacao da instrucao
 		int rt;
 		int rd;
-		int imm;
+        int imm; //valor imediato
 		void writeSignals();
 		void readIFID();
 		void controlSignals();
-		//numero do registrador de destino
 	public:
 		void read_tick();
 		void write_tick();

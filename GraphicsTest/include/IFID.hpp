@@ -5,6 +5,9 @@
 
 using namespace std;
 
+/**
+ * @brief Registrador intermediario IFID
+ */
 class IFID{
 	private:
 		string ir;

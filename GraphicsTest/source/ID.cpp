@@ -6,6 +6,7 @@
 #include <string>
 #include <stdlib.h>
 
+
 template<typename Out>
 void split(const std::string &s, char delim, Out result) {
     std::stringstream ss(s);
@@ -15,12 +16,22 @@ void split(const std::string &s, char delim, Out result) {
     }
 }
 
+/**
+ *Funcao auxiliar que divide uma string em um vetor de strings
+ *  delimitador: delim
+ */
 std::vector<std::string> split(const std::string &s, char delim) {
     std::vector<std::string> elems;
     split(s, delim, std::back_inserter(elems));
     return elems;
 }
 
+/**
+ * @brief ID::ID cria um
+ * @param banco banco de registradores ja inicializado
+ * @param ifid registrador intermediario - deve ser o mesmo de IF
+ * @param idexe registrador intermediario - deve ser o mesmo de EX
+ */
 ID::ID(BancoDeRegistradores *banco, IFID *ifid, IDEXE *idexe){
 	this->banco = banco;
 	this->ifid = ifid;
@@ -38,11 +49,12 @@ ID::ID(BancoDeRegistradores *banco, IFID *ifid, IDEXE *idexe){
 }
 
 
-
+/**
+ * @brief ID::controlSignals Decodifica instrucao contida em ir
+ */
 void ID::controlSignals(){
-	//separate string into parts
+    //separa string pelos espacos
 	vector<string> results;
-
 	if(ir!="")
 		results=split(ir,' ');
 	else{
@@ -50,10 +62,9 @@ void ID::controlSignals(){
 		results.at(0)="nop";
 	}
 	
-	//find what type of instruction it is
-	//according to type
-	//generate signals
-
+    //Descobre tipo de instrucao
+    //de acordo com o tipo
+    //gera sinais de controle
 
 	if(results.at(0)=="add" || results.at(0)=="sub" || results.at(0)=="or" || results.at(0)=="and"){
 
@@ -175,6 +186,9 @@ void ID::controlSignals(){
 	
 }
 
+/**
+ * @brief ID::writeSignals Escreve sinais de controle em IDEX
+ */
 void ID::writeSignals(){
 	idexe->setRegDest (this->regDest);
 	idexe->setRegWrite(this->regWrite);
@@ -186,20 +200,28 @@ void ID::writeSignals(){
 	idexe->setAluOP(this->aluOP);
 }
 
+/**
+ * @brief ID::readIFID Realiza leitura de IFID
+ */
 void ID::readIFID(){
 	npc = ifid->getNPC();
 	ir = ifid->getIR();
 }
 
+/**
+ * @brief ID::read_tick tick de leitura. Deve ser chamado apos write_tick.
+ */
 void ID::read_tick(){
 	readIFID();	
 }
 
+/**
+ * @brief ID::write_tick tick de escrita. Deve ser chamado antes de read_tick.
+ */
 void ID::write_tick(){
 
 	controlSignals();
-	//read registers and save to id/exe
-
+    //le registradores e salva em idex
 	idexe->setA(banco->read_reg1(rs));
 	idexe->setB(banco->read_reg1(rt));
 	idexe->setImm(imm);
@@ -220,6 +242,9 @@ void ID::setIDEXE(IDEXE *idexe){
 	this->idexe=idexe;
 }
 
+/**
+ * @brief ID::reset Retorna ID aos seus valores iniciais
+ */
 void ID::reset(){
     regDest = false;
     regWrite = false;

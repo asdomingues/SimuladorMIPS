@@ -6,6 +6,10 @@
 #include "MEMWB.hpp"
 
 using namespace std;
+
+/**
+ * @brief The WB class Estagio WB
+ */
 class WB{
 	private:
 		BancoDeRegistradores *banco;
@@ -17,7 +21,6 @@ class WB{
 		bool mem_to_reg;
 		int reg_address;
 	
-		//numero do registrador de destino
 	public:
 		void read_tick();
 		void write_tick();

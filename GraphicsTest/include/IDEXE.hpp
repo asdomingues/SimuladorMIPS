@@ -5,6 +5,9 @@
 
 using namespace std;
 
+/**
+ * @brief Registrador intermediario IDEX
+ */
 class IDEXE{
 	private:
 		string ir;

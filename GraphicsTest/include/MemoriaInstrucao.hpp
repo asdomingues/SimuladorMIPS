@@ -5,6 +5,10 @@
 #define TAM 1024
 #include <string>
 
+/**
+ * @brief Memoria de Instrucoes - guarda instrucoes em formato de string.
+ * Posicoes de memoria numeradas a cada 4 bytes.
+ */
 class MemoriaInstrucao{
     public:
         MemoriaInstrucao();

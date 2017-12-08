@@ -8,17 +8,19 @@
 #include "Mux.hpp"
 #include <iostream>
 
+/*Estagio IF
+ *  Busca instrucoes na memoria e mantem PC atualizado
+ */
 class IF{
 	private:
-		MemoriaInstrucao *memoria;
-		IFID *ifid;
-		EXMEM *exmem;
-		Registrador pc;
-		string ir;
-		Mux mux;
-		bool pcSrc;
+        MemoriaInstrucao *memoria; //memoria de instrucoes
+        IFID *ifid; //registrador intermediario IF/ID
+        EXMEM *exmem; //registrador intermediaro EX/MEM (para definicao de branch)
+        Registrador pc; //Registrador PC - program counter
+        string ir; //Instruction Register
+        Mux mux; //Para selecao do PC - branch ou pc+4
+        bool pcSrc; //Sinal de selecao para PC
 
-		//numero do registrador de destino
 	public:
 		void write_tick();
 		void read_tick();

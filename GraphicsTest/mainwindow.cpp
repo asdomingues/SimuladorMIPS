@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     setWindowTitle("Simulador MIPS");
     ui->reg->setText("0");
 
-
+    //Inicializa objetos do Pipeline
     memoria_instrucao = new MemoriaInstrucao();
     memoria_instrucao->load_instructions("instrucoes.in");
 
@@ -33,7 +33,9 @@ MainWindow::MainWindow(QWidget *parent) :
     this->initDataMemoryT();
 }
 
-
+/**
+ * @brief MainWindow::initInstructionT Tabela de instrucoes
+ */
 void MainWindow::initInstructionT(){
     ui->instruction_t->insertColumn(0);
     ui->instruction_t->insertColumn(1);
@@ -54,7 +56,9 @@ void MainWindow::initInstructionT(){
     lastpc=0;
 }
 
-
+/**
+ * @brief MainWindow::initDataMemoryT Tabela de memoria de dados
+ */
 void MainWindow::initDataMemoryT(){
     ui->datamemory_t->insertColumn(0);
     ui->datamemory_t->insertColumn(1);
@@ -378,7 +382,9 @@ void MainWindow::print_PC(){
 }
 
 
-
+/**
+ * @brief MainWindow::on_pushButton_clicked Avanca estagio
+ */
 void MainWindow::on_pushButton_clicked()
 {
     ifstage->write_tick();
@@ -401,6 +407,9 @@ void MainWindow::on_pushButton_clicked()
     updateDataMemoryT();
 }
 
+/**
+ * @brief MainWindow::on_resetButton_clicked Botao de reset
+ */
 void MainWindow::on_resetButton_clicked()
 {
     ifstage->reset();

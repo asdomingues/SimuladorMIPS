@@ -6,6 +6,9 @@
 #define TAM 1024
 using namespace std;
 
+/**
+ * @brief Memoria de dados. Guarda valores inteiros.
+ */
 class Memoria{
 	public:
 		Memoria();

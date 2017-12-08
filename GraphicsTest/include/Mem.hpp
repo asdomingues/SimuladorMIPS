@@ -4,6 +4,11 @@
 #include "Memoria.hpp"
 #include "EXMEM.hpp"
 #include "MEMWB.hpp"
+
+/**
+ * @brief Estagio MEM
+ *
+ */
 class Mem{
 	public:
 		Mem(EXMEM *exmem, MEMWB *memwb, string filename);
