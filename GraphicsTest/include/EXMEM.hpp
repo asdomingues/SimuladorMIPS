@@ -5,9 +5,30 @@
 
 using namespace std;
 
+/**
+ * @brief Registradores intermediários EXMEM
+ */
 class EXMEM {
+	private:
+		string ir;
+
+		int branch_address; // endereço de branch a ser usado
+		bool alu_zero; // indicador de resultado 0 na ula
+		int alu_out;
+		int alu_in2; // segunda entrada da ULA (usada em MEM)
+		int write_reg_address;
+
+		// sinais de controle usados ou repassados em MEM
+		bool reg_write;
+		bool branch;
+		bool mem_read;
+		bool mem_write;
+		bool mem_to_reg;
+
 	public:
 		EXMEM();
+
+		// funções usadas por EX para atualizar estes registradores
 		void set_ir(string ir);
 
 		void set_branch_address(int branch_address);
@@ -22,6 +43,7 @@ class EXMEM {
 		void set_mem_write(bool mem_write);
 		void set_mem_to_reg(bool mem_to_reg);
 
+		// funções usadas por MEM para acessar estes registradores
 		string get_ir();
 
 		int get_branch_address();
@@ -36,21 +58,6 @@ class EXMEM {
 		bool get_mem_write();
 		bool get_mem_to_reg();
         void reset();
-	private:
-		string ir;
-
-		int branch_address;
-		bool alu_zero;
-		int alu_out;
-		int alu_in2;
-		int write_reg_address;
-
-		bool reg_write;
-		bool branch;
-		bool mem_read;
-		bool mem_write;
-		bool mem_to_reg;
-
 };
 
 #endif

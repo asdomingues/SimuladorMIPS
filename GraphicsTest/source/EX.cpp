@@ -29,7 +29,9 @@ EX::EX(Ula *alu, IDEXE *idex, EXMEM *exmem) {
     imm = 0;
     npc = 0;
 }
-
+/**
+ * @brief EX::write_signals Escreve sinais de controle em EXMEM
+ */
 void EX::write_signals() {
 	exmem->set_reg_write(reg_write);
 	exmem->set_branch(branch);
@@ -39,6 +41,9 @@ void EX::write_signals() {
 	exmem->set_ir(ir);
 }
 
+/**
+ * @brief EX::read_idex Lê sinais dos registradores intermediários IDEX
+ */
 void EX::read_idex() {
 	reg_dst = idex->getRegDest();
 	reg_write = idex->getRegWrite();
@@ -57,24 +62,35 @@ void EX::read_idex() {
 	rd = idex->getRD();
 }
 
+/**
+ * @brief EX::read_tick sinal de leitura para EX, chamado depois do de escrita
+ */
 void EX::read_tick(){
 	read_idex();
 }
 
+/**
+ * @brief EX::write_tick sinal de escrita para EX, chamado antes do de leitura
+ */
 void EX::write_tick() {
 	Mux m = Mux(2);
 	int select;
 
+	// branch seria no npc + deslocamento * número de bytes por palavra
 	exmem->set_branch_address(npc + (imm << 2));
 
+	// mux para selecionar a segunda entrada da ula
 	m.set_entrada(0, b);
 	m.set_entrada(1, imm);
 	select = alu_src == true ? 1 : 0;
-	alu->set_aluIN1(a);
 
+	// executando a operação na ULA com os operandos desejados
+	alu->set_aluIN1(a);
 	alu->set_aluIN2(m.get_saida(select));
 	alu->set_aluOP(alu_op);
 	exmem->set_alu_out(alu->operation());
+
+	// obtendo os sinais de saída e salvando nos registradores intermediários
 	if(exmem->get_alu_out() == 0)
 		exmem->set_alu_zero(true);
 	else
@@ -90,6 +106,9 @@ void EX::write_tick() {
 
 }
 
+/**
+ * @brief EX::reset retorna todos os valores ao padrão (aqueles do construtor)
+ */
 void EX::reset(){
     this->ir = "";
     this->reg_dst = false;

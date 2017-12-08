@@ -6,34 +6,38 @@
 #include "EXMEM.hpp"
 #include <string>
 
+/**
+ * @brief Estágio EX
+ */
 class EX {
 	private:
-		IDEXE *idex;
-		EXMEM *exmem;
-		Ula *alu;
+		IDEXE *idex; // registradores intermediários anteriores
+		EXMEM *exmem; // registradores intermediários posteriores
+		Ula *alu; // alu do processador
 
-		// signals used at this stage
+		// sinais de controle usados neste estágios
 		bool reg_dst;
 		string alu_op;
 		bool alu_src;
-		// signals used at mem stage
+		// sinais de controle usados no próximo estágio (mem)
 		bool mem_read;
 		bool mem_write;
-		// signals used at wb stage
+		// sinais de controle usados no estágio de write back
 		bool mem_to_reg;
-		// signals used at if stage
+		// sinal usado pelo estado de busca
 		bool branch;
-		// signals used at id stage
+		// sinais usados pelo estado de decodificação
 		bool reg_write;
+
 		void write_signals();
 		void read_idex();
-		string ir;
-		int b, a, rt, rd;
+		string ir; // instruction register
+		int b, a, rt, rd; // entradas da ULA e registrador de destino
 		int imm, npc;
 
 	public:
-		void read_tick();
-        void write_tick();
+		void read_tick(); // primeira metade do clock
+        void write_tick(); // segunda metade do clock
         void reset();
 		EX(Ula *alu, IDEXE *idex, EXMEM *exmem);
 };
