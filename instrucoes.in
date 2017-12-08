@@ -12,8 +12,11 @@ nop
 add $r1, $r2, $r3
 sub $r2, $r3, $r2
 add $r1, $r1, $r1
-beq $r1, $r1, 1
 nop
+add $r4, $r4, $r2
+nop
+nop
+beq $r2, $r4, -4
 nop
 nop
 and $r3, $r0, $r1

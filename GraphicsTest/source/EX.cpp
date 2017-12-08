@@ -22,6 +22,12 @@ EX::EX(Ula *alu, IDEXE *idex, EXMEM *exmem) {
 	this->mem_write = false;
 	this->mem_to_reg = false;
 	this->alu_op = "";
+    b = 0;
+    a = 0;
+    rt = 0;
+    rd = 0;
+    imm = 0;
+    npc = 0;
 }
 
 void EX::write_signals() {
@@ -94,4 +100,10 @@ void EX::reset(){
     this->mem_write = false;
     this->mem_to_reg = false;
     this->alu_op = "";
+    b = 0;
+    a = 0;
+    rt = 0;
+    rd = 0;
+    imm = 0;
+    npc = 0;
 }
